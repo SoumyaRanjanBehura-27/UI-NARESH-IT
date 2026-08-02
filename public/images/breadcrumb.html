@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREAD_CRUMB</title>
+    <style>
+        ul{
+            display: flex;
+           list-style: none;
+        }
+        ul li{
+            margin-left: 10px;
+        }
+        li::after{
+            content:"=>";
+            padding: 5px;
+        }
+        li:last-child::after{
+            content: "";
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>electronics</li>
+        <li>mobile</li>
+        <li>samsung</li>
+        <li>samsung s26 ultra</li>
+        <li>titanium black</li>
+    </ul>
+</body>
+</html>
