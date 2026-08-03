@@ -130,6 +130,94 @@ background-color:  rgb(218, 216, 216);
             border: 1px solid rgb(83, 81, 81);
             border-radius: 10px;
         }
+        .pl-header{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #eceae8;
+            border-radius: 10px;
+        }
+        .bi-journal-text{
+            color: blue;
+        }
+        .Description{
+            color: black;
+            margin-left: 7px;
+        }
+        .bi-book{
+            color: #f59e0b;
+        }
+    .Editor{
+        color: rgb(97, 94, 94);
+        margin-left: 7px;
+    }
+    .bi-flask{
+        color: skyblue;
+    }
+    .Solution{
+        color: rgb(105, 102, 102);
+        margin-left: 7px;
+    }
+    .bi-clock-history{
+        color: skyblue;
+    }
+    .Submissions{
+        color: rgb(103, 99, 99);
+        margin-left: 7px;
+    }
+    .pl-1 span{
+       margin-left: 20px;
+    }
+    .pl-2 span{
+        margin-right: 10px;
+    }
+    .pl-body{
+        margin-left: 18px;
+    }
+    .level{
+        display: flex;
+        justify-content: left;
+     gap: 10px;
+    }
+    .easy{
+        color: rgb(41, 166, 215);
+        background-color: rgb(204, 198, 198);
+        border-radius: 15px;
+        padding: 5px;
+    }
+    .bi-lock{
+        color: goldenrod;
+        background-color: rgb(216, 210, 210);
+        border-radius: 20px;
+        padding: 5px;
+    }
+    .question{
+        margin-top: 20px;
+        font-size: 17px;
+    }
+    .box-1{
+        background-color: rgb(227, 221, 221);
+        padding: 2px;
+        border-radius: 3px;
+    }
+     .box-2{
+        background-color: rgb(199, 193, 193);
+        padding: 2px;
+        border-radius: 3px;
+    }
+    h3{
+        margin-top: 30px;
+    }
+    .pr-header{
+        background-color: #eceae8;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+    .bi-code-slash{
+         color: rgb(64, 233, 64);
+         margin-right: 5px;
+    }
     </style>
 </head>
 <body>
@@ -160,11 +248,63 @@ background-color:  rgb(218, 216, 216);
     </header>
     <main>
 <div class="panel-left">
+<div class="pl-header">
+    <div class="pl-1">
+        <span class="bi bi-journal-text"><span class="Description">Description</span></span>
+        <span class="bi bi-book"><span class="Editor">Editor</span></span>
+        <span class="bi bi-flask"><span class="Solution">Solution</span></span>
+        <span class="bi bi-clock-history"><span class="Submissions">Submissions</span></span>
+    </div>
+    <div class="pl-2">
+        <span class="bi bi-fullscreen"></span>
+        <span class="bi bi-chevron-double-left"></span>
+    </div>
+</div>
+<div class="pl-body">
+<h2>2667. create Hello World Function</h2>
+<div class="level">
+    <span class="easy">Easy</span>
+    <span class="bi bi-lock">Compamies</span>
+</div>
+<div class="question">
+    Write a function <span class="box-1">createHelloWorld</span>. It should return a new function that always returns <span class="box-2">"Hello World"</span>.
+</div>
+<h3>Example 1:</h3>
+<div class="ex-1">
+    <pre>
+Input: args = []
+Output: "Hello World"
+Explanation:
+const f = createHelloWorld();
+f(); // "Hello World"
+
+The function returned by createHelloWorld should always return "Hello World".
+    </pre>
+</div>
+<h3>Example 2:</h3>
+<div class="ex-2">
+<pre>
+Input: args = [{},null,42]
+Output: "Hello World"
+Explanation:
+const f = createHelloWorld();
+f({}, null, 42); // "Hello World"
+
+Any arguments could be passed to the function but it should still always return "Hello World".
+ 
+</pre>
+</div>
+<h3>Constraints:</h3>
+<ul>
+<li>0 <= args.length <= 10</li>
+</ul>
+</div>
 
 </div>
 <div class="panel-right">
-
+<div class="pr-header"><span class="bi bi-code-slash"></span>Code</div>
 </div>
+
     </main>
 </body>
 </html>
