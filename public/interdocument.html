@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inter Document </title>
+    <style>
+        body{
+            display: grid;
+            grid-template-columns: 3fr 3fr 6fr;
+        }
+        li{
+            border: 1px solid black;
+            width: 300px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        li:hover{
+            background-color: rgb(185, 179, 179);
+            font-size: 20px;
+            padding: 15px;
+        }
+        a{
+            text-decoration: none;
+        }
+        iframe{
+            border: none;
+        }
+        a:visited{
+            color: green;
+        }
+        a:active{
+            color: red;
+        }
+        .shorts{
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ol>
+            <li> <a href="https://www.amazon.com" target="_blank">Amazon</a> </li>
+            <li><a href="./card.html">Amzon Card</a></li>
+            <li><a href="mail-to:soumyaranjanbehura27@gmail.com">soumyaranjanbehura27@gmail.com</a></li>
+            <li><a href="tel:+918917653181">+918917653181</a></li>
+            <li><a href="https://www.youtube.com/embed/nbXwI5zDyh0" target="preview">Naresh IT</a></li>
+            <li><a href="./images/netflix-banner.jpg" download="Netflix">Netflix Banner</a></li>
+            <li><a href="./images/amazon_banner.jpg" target="_blank">Amazon Banner</a></li>
+            <li><a href="https://www.youtube.com/embed/aaGTxGVh2dM" target="view">Naresh IT</a></li>
+        </ol>
+    </div>
+    <div class="shorts">
+        <div>
+            <iframe src="https://www.youtube.com/embed/0HxjsUqRlIs" width="250px" height="200px"></iframe>
+        </div>
+        <div>
+            <iframe src="https://www.youtube.com/embed/tw0UCEePROY" width="250px" height="200px"></iframe>
+        </div>
+        <div>
+            <iframe src="https://www.youtube.com/embed/EcZbNXL2sJo" width="250px" height="200px"></iframe>
+        </div>
+    </div>
+    <div>
+        <iframe name="preview" width="800px" height="350px"></iframe>
+        <iframe name="view" width="800px" height="350px"></iframe>
+    </div>
+</body>
+</html>
