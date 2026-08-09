@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>ICC Table</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        h1{
+            color: navy;
+        }
+        table{
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .player-container{
+           display: flex;
+           align-items: center;
+          justify-content: space-between;
+          
+         
+        }
+        .ind{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .number1{
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .name{
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .ratings{
+             font-weight: bold;
+            font-size: 25px;
+        }
+      .s-gill{
+        padding-right: 100px;
+      }
+      body{
+        margin: 20px;
+      }
+      td{
+        padding: 20px;
+      }
+      .player{
+        padding-top: -15px;
+      }
+      tbody{
+        color: navy;
+        font-size: 20px;
+      }
+      thead{
+        color: gray;
+        font-size: 18px;
+      }
+      .first-row td{
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .bi-dot{
+        font-size: 30px;
+        color: rgb(180, 176, 176);
+      }
+      .number{
+        display: flex;
+        flex-direction: row;
+        
+        align-items: center;
+        
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MEN'S ODI BATTING RANKINGS</h1>
+    </header>
+    <table width="100%" rules="rows">
+        <thead>
+            <tr>
+                <td>POS</td>
+                <td>TEAM</td>
+                <td>Player</td>
+                <td>Rating</td>
+                <td align="right">Career Best Rating</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="first-row" bgcolor="lightgray">
+              
+                 <td class="number1"><span>01</span><span class="bi bi-dot"></span><span>|</span></td>
+                <td>
+                    <div>
+                       <span><img src="./images/ind.png" width="30"></span>
+                       <span class="ind">IND</span> 
+                    </div>
+                </td>
+                <td>
+                    <div class="player-container">
+                        <div class="name-container">
+                            <div>Shubman</div>
+                            <div class="name">GILL</div>
+                        </div>
+                        <div class="s-gill"><img src="./images/sgill.webp" width="100"></div>
+                    </div>
+                </td>
+                <td class="ratings">
+                   801
+                </td>
+                <td align="right">841 v Australia at indore 2023</td>
+            </tr>
+            <tr>
+                <td class="number"><span>02</span><span class="bi bi-dot"></span><span>|</span></td>
+                <td>
+                    <span><img src="./images/nz.png" width="30"></span>
+                    <span>NEW ZEALAND</span>
+                </td>
+                <td>
+                    Daryl <b>MITCHELL</b>
+                </td>
+                <td>794</td>
+                <td align="right">840 v India at Indore 2026</td>
+            </tr>
+            <tr bgcolor="lightgray">
+                <td class="number"><span>03</span><span class="bi bi-dot"></span><span>|</span></td>
+                <td>
+                    <span><img src="./images/ind.png" width="30"></span>
+                    <span>India</span>
+                </td>
+                <td>
+                   Virat <b>KOHILI</b>
+                </td>
+                <td>767</td>
+                <td align="right">908 v England at Headingely 2018</td>
+            </tr>
+            <tr>
+                <td class="number"><span>04</span><span class="bi bi-dot"></span><span>|</span></td>
+                <td>
+                    <span><img src="./images/ind.png" width="30"></span>
+                    <span>India</span>
+                </td>
+                <td>
+                    Rohit <b>SHARMA</b>
+                </td>
+                <td>758</td>
+                <td align="right">879 v Sri Lanka at Headingely 2019</td>
+            </tr>
+            <tr bgcolor="lightgray">
+                <td class="number"><div>05</div><span class="bi bi-dot"></span><div>|</div></td>
+                <td>
+                    <span><img src="./images/afg.png" width="30"></span>
+                    <span>AFGHANISTAN</span>
+                </td>
+                <td>
+                    Ibrahim <b>ZADRAN</b>
+                </td>
+                <td>712</td>
+                <td align="right">756 v Bangladesh at Abu Dhabi 2025</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
