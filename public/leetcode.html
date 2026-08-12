@@ -218,13 +218,113 @@ background-color:  rgb(218, 216, 216);
          color: rgb(64, 233, 64);
          margin-right: 5px;
     }
+    .args{
+        background-color: rgb(232, 226, 226);
+        border-radius: 5px;
+        padding: 5px;
+        width: 150px;
+    }
+   .star{
+ color: green;
+    font-family: arial;
+   }
+   .return{
+ color: blue;
+ font-size: 13px;
+    font-family: arial;
+   }
+   .function{
+ color: green;
+ font-size: 13px;
+    font-family: arial;
+   }
+   .var{
+    color: blue;
+ font-size: 13px;
+    font-family: arial;
+   }
+   .world{
+    color: goldenrod;
+ font-size: 13px;
+    font-family: arial;
+   }
+   .function1{
+ color: blue;
+ font-size: 13px;
+    font-family: arial;
+   }
+   .ar{
+    color: purple;
+     font-size: 13px;
+    font-family: arial;
+   }
+   .const{
+    color: green;
+    font-size: 13px;
+    font-family: arial;
+   }
+   .pr-header1{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    border: 1px solid grey;
+   }
+   .lh{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+   
+   }
+   .rh{
+    display: flex;
+    gap: 15px;
+   }
+   .bi-bookmark:hover{
+    background-color: rgb(160, 156, 156);
+    padding: 3px;
+    border-radius: 5px;
+   }
+    .bi-braces:hover{
+    background-color: rgb(160, 156, 156);
+    padding: 3px;
+    border-radius: 5px;
+   }
+    .bi-arrow-counterclockwise:hover{
+    background-color: rgb(160, 156, 156);
+    padding: 3px;
+    border-radius: 5px;
+   }
+    .bi-arrows-angle-expand:hover{
+    background-color: rgb(160, 156, 156);
+    padding: 3px;
+    border-radius: 5px;
+   }
+   .js-1:hover{
+     background-color: rgb(160, 156, 156);
+    padding: 3px;
+    border-radius: 5px;
+   }
+   .auto:hover{
+     background-color: rgb(160, 156, 156);
+    padding: 3px;
+    border-radius: 5px;
+   }
+  li{
+    margin-top: 3px;
+    list-style: none;
+  }
+.num{
+    color: green;
+    margin-right: 20px;
+  
+}
     </style>
 </head>
 <body>
     <header>
        <div class="header-left">
-        <span><img src="../images/leetcode_logo.png" width="30px" height="30px"></span>
-        <span class="js_img"><img src="../images/js_logo.png" width="30px" height="30px">&nbsp;Javscript 30 day challange</span>
+        <span><img src="./images/leetcode_logo.png" width="30px" height="30px"></span>
+        <span class="js_img"><img src="./images/js_logo.png" width="30px" height="30px">&nbsp;Javscript 30 day challange</span>
         <span class="bi bi-chevron-left"></span>
         <span class="bi bi-chevron-right"></span>
         <span class="bi bi-shuffle"></span>
@@ -272,9 +372,9 @@ background-color:  rgb(218, 216, 216);
 <h3>Example 1:</h3>
 <div class="ex-1">
     <pre>
-Input: args = []
-Output: "Hello World"
-Explanation:
+<b>Input:</b> args = []
+<b>Output:</b> "Hello World"
+<b>Explanation:</b>
 const f = createHelloWorld();
 f(); // "Hello World"
 
@@ -284,9 +384,9 @@ The function returned by createHelloWorld should always return "Hello World".
 <h3>Example 2:</h3>
 <div class="ex-2">
 <pre>
-Input: args = [{},null,42]
-Output: "Hello World"
-Explanation:
+<b>Input:</b> args = [{},null,42]
+<b>Output: </b>"Hello World"
+<b>Explanation:</b>
 const f = createHelloWorld();
 f({}, null, 42); // "Hello World"
 
@@ -296,15 +396,46 @@ Any arguments could be passed to the function but it should still always return 
 </div>
 <h3>Constraints:</h3>
 <ul>
-<li>0 <= args.length <= 10</li>
+<li class="args">0 <= args.length <= 10</li>
 </ul>
 </div>
 
 </div>
 <div class="panel-right">
 <div class="pr-header"><span class="bi bi-code-slash"></span>Code</div>
+<div class="pr-header1">
+    <div class="lh">
+        <div class="js-1">JavaScript <span class="bi bi-chevron-down"></span></div>
+       <div class="auto"> <span class="bi bi-dot">Auto</span></div>
+    </div>
+    <div class="rh">
+        <span class="bi bi-bookmark"></span>
+        <span class="bi bi-braces"></span>
+        <span class="bi bi-arrow-counterclockwise"></span>
+        <span class="bi bi-arrows-angle-expand"></span>
+    </div>
 </div>
+<div class="pr-body">
+      <ol>
+         <li><span class="num">1</span> <span  class="star">/**</span></li>
+        <li><span class="num">2</span><span class="star">*</span> <span class="return">@return</span> <span class="function">{Function}</span></li>
+        <li><span class="num">3</span><span  class="star">/*</span></li>
+        <li><span class="num">4</span><span class="var">var</span> <span class="world">createHelloWorld =</span> <span class="function1">function</span><span class="brac">() {</span> </li>
+        <li><span class="num">5</span></li>
+        <li><span class="num">6</span><span class="return1">return</span> <span class="function1">function</span><span class="ar">(...args) { </span></li>
+        <li><span class="num">7</span></li>
+        <li><span class="num">8</span>}</li>
+        <li><span class="num">9</span>};</li>
+        <li><span class="num">10</span></li>
+        <li><span class="num">11</span><span  class="star">/**</span></li>
+        <li><span class="num">12</span><span class="const">* const f = createHelloWorld();</span></li>
+        <li><span class="num">13</span><span class="const">* f(); // "Hello World"</span></li>
+        <li><span class="num">14</span><span class="const">*/</span></li>
+      </ol>
+        
 
+</div>
+</div>
     </main>
 </body>
 </html>
