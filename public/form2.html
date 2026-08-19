@@ -9,13 +9,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 500px;
+            height: 100vh;
+            background-image: linear-gradient(135deg, rgb(71, 183, 227), rgb(133, 53, 133));
         }
         form{
-            border: 1px solid black;
-            width: 450px;
-             padding: 20px;
+            border: 1px solid white;
+            width: 550px;
+            height: 530px;
+             padding: 30px;
              border-radius: 10px;
+             background-color: white;
         
 
         }
@@ -24,70 +27,110 @@
             grid-template-columns: 6fr 6fr;
            
         }
+        h1{
+            margin-bottom: -5px;
+            margin-top: -5px;
+        }
         label{
             display: block;
-            margin-bottom: 5px;
-        }
+            margin-top: 20px;
+            margin-bottom: 10px;
+        font-weight: 500;
+        color: rgb(42, 40, 40);
        
-.radio-item{
+        }
+        input{
+           border: 1px solid rgb(194, 188, 188);
+            box-shadow: 2px 2px 2px gray;
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+        }
+   .radio-container{
+    margin-top: 50px;
+   }    
+.radio-item {
     display: flex;
-    gap: 60px;
-  
+    gap: 45px;
+    align-items: center;
 }
-.radio{
+
+.radio {
     display: flex;
-    
+    align-items: center;
+    gap: 6px;
+}
+
+.radio input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.radio label {
+    margin: 0;
+    display: inline;
+    font-weight: 500;
+    color: rgb(42, 40, 40);
 }
 button{
     width: 100%;
-    background-image: linear-gradient(to right,rgb(87, 87, 234),purple);
+   background-image: linear-gradient(to right, rgb(71, 183, 227), rgb(133, 53, 133));
     padding: 5px;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
+.form-field1{
+    margin-left: 10px;
+}
+
     </style>
 </head>
 <body>
     <form method="get">
+        <h1>Registration</h1>
         <div class="form-container">
          <div class="form-field">
-<div form-item>
+<div class="form-item">
     <label>Full Name</label>
-    <input type="text" name="fullname">
+    <input type="text" name="fullname" placeholder="Enter Your Name" required>
 </div>
-<div form-item>
+<div class="form-item">
     <label for="email">Email</label>
-    <input type="text" name="email">
+    <input type="text" name="email" placeholder="Enter Your Email">
 </div>
-<div form-item>
+<div class="form-item">
     <label for="password"> Confirm Password</label>
-    <input type="password" name="password">
+    <input type="password" name="password" placeholder="Enter Your Password">
 </div>
          </div>
-         <div class="form-field">
-<div form-item>
+         <div class="form-field1">
+<div class="form-item">
     <label for="username">Username</label>
-    <input type="text" name="username">
+    <input type="text" name="username" placeholder="Enter Your Username">
 </div>
-<div form-item>
+<div class="form-item">
     <label for="phnumber">Phone Number</label>
-    <input type="number" name="phnumber">
+    <input type="number" name="phnumber" placeholder="Enter Your Number">
 </div>
-<div form-item>
+<div class="form-item">
     <label for="password"> Confirm Password</label>
-    <input type="password" name="password">
+    <input type="password" name="password" placeholder="Confirm Your Password">
 </div>
          </div>
         </div>
         <div class="radio-container">
          <h3>Gender</h3>
          <div class="radio-item">
-<div class="radio"><input type="radio" name="gender"><label for="gender">Male</label></div>
-<div class="radio"><input type="radio" name="gender"><label for="gender">Female</label></div>
-<div class="radio"><input type="radio" name="gender"><label for="gender">Others</label></div>
+<div class="radio"><input type="radio" id="male" name="gender"><label for="gender">Male</label></div>
+<div class="radio"><input type="radio" id="female" name="gender"><label for="gender">Female</label></div>
+<div class="radio"><input type="radio" id="others" name="gender"><label for="gender">Others</label></div>
 
          </div> 
-          <button>Register</button>
+          <button type="submit">Register</button>
        </div>
        
     </form>
