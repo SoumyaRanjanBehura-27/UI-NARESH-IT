@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-image: linear-gradient(135deg, lightskyblue, purple);
+}
+form{
+    border: 1px solid white;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+}
+label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+input{
+
+}
+.radio-container{
+    display: flex;
+    gap: 30px;
+}
+.radio-item{
+    display: flex;
+
+}
+button{
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+}
+#submit{
+    background-color: rgb(54, 168, 238);
+}
+#reset{
+    background-color: red;
+}
+    </style>
+</head>
+<body>
+    <form method="get">
+        <div>
+<div><label for="firstname">First Name</label>
+    <input type="text" name="firstname">
+</div>
+<div><label for="lastname">Last Name</label>
+    <input type="text" name="lastname">
+</div>
+<div><label for="email">Email</label>
+    <input type="text" name="email">
+</div>
+<div><label for="mobile">Mobile Number</label>
+    <input type="number" name="mobile">
+</div>
+<div><label for="password">Enter Your Password</label>
+    <input type="password" name="password">
+</div>
+<div><label for="password">Confirm Your Password</label>
+    <input type="password" name="password">
+</div>
+<div class="radio-container">
+    <div class="radio-item">
+    <input type="radio" name="gender"><label for="gender">Male</label>
+</div>
+<div class="radio-item">
+    <input type="radio" name="gender"><label for="gender">Female</label>
+</div>
+<div class="radio-item">
+    <input type="radio" name="gender"><label for="gender">Others</label>
+</div>
+</div>
+
+        </div>
+        <button type="submit" id="submit">Submit</button>
+        <button type="reset" id="reset">Reset</button>
+    </form>
+</body>
+</html>
