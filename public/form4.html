@@ -15,7 +15,7 @@ body{
 form{
     border: 1px solid white;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     width: 400px;
 }
@@ -25,7 +25,19 @@ label{
     margin-bottom: 7px;
 }
 input{
+width: 300px;
+border: none;
+border-bottom: 2px solid gray;
+padding: 8px;
+font-size: 16px;
+}
+input:focus{
+  outline: none; 
 
+}
+input+span{
+    color: red;
+    margin-left: 20px;
 }
 .radio-container{
     display: flex;
@@ -35,41 +47,76 @@ input{
     display: flex;
 
 }
+.radio-item input{
+    width: 15px;
+}
+
 button{
-    width: 150px;
+    width: 170px;
     padding: 10px;
     border-radius: 10px;
+    margin-top: 30px; 
 }
 #submit{
     background-color: rgb(54, 168, 238);
 }
 #reset{
     background-color: red;
+    
+}
+.button{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.gen{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+h3+span{
+    color: red;
+    margin-right: 50px;
+}
+.form-container{
+    padding: 20px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: 5px double gray;
+    padding-bottom: 5px;
 }
     </style>
 </head>
 <body>
     <form method="get">
-        <div>
+        <h1>Resgistration form</h1>
+        <div class="form-container">
 <div><label for="firstname">First Name</label>
-    <input type="text" name="firstname">
+    <input type="text" name="firstname" autofocus pattern="^(?=.*[A-Z])" > <span>*</span>
 </div>
 <div><label for="lastname">Last Name</label>
-    <input type="text" name="lastname">
+    <input type="text" name="lastname"><span>*</span>
 </div>
 <div><label for="email">Email</label>
-    <input type="text" name="email">
+    <input type="text" name="email"><span>*</span>
 </div>
 <div><label for="mobile">Mobile Number</label>
-    <input type="number" name="mobile">
+    <input type="number" name="mobile"><span>*</span>
 </div>
 <div><label for="password">Enter Your Password</label>
-    <input type="password" name="password">
+    <input type="password" name="password"><span>*</span>
 </div>
 <div><label for="password">Confirm Your Password</label>
-    <input type="password" name="password">
+    <input type="password" name="password"><span>*</span>
 </div>
-<div class="radio-container">
+<div>
+   <div class="gen"> <h3>Gender</h3><span>*</span></div>
+    <div class="radio-container">
     <div class="radio-item">
     <input type="radio" name="gender"><label for="gender">Male</label>
 </div>
@@ -81,9 +128,12 @@ button{
 </div>
 </div>
 
+</div>
         </div>
-        <button type="submit" id="submit">Submit</button>
+    <div class="button">
+         <button type="submit" id="submit">Submit</button>
         <button type="reset" id="reset">Reset</button>
+    </div>
     </form>
 </body>
 </html>
