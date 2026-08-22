@@ -28,7 +28,7 @@ input{
 width: 300px;
 border: none;
 border-bottom: 2px solid gray;
-padding: 8px;
+padding: 5px;
 font-size: 16px;
 }
 input:focus{
@@ -106,7 +106,7 @@ h1{
     <input type="text" name="email"><span>*</span>
 </div>
 <div><label for="mobile">Mobile Number</label>
-    <input type="number" name="mobile"><span>*</span>
+    <input type="text" name="mobile" pattern="^\+91[0-9]{10}$"><span>*</span>
 </div>
 <div><label for="password">Enter Your Password</label>
     <input type="password" name="password"><span>*</span>
