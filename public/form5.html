@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login Form</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+body{
+    background-image: url(./images/wallpaperflare.com_wallpaper\ \(2\).jpg);
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+   border: none; 
+   width: 350px;
+   height: 500;
+   background-color: transparent;
+   border: 1px solid rgb(174, 168, 168);
+   padding: 30px;
+   background: rgba(100,30,160,0.25);
+   backdrop-filter: blur(5px);
+color: white; 
+height: 370px;  
+border-radius: 10px;
+}
+input:focus{
+    outline: none;
+}
+input::placeholder{
+    color: white;
+}
+h1{
+    display: flex;
+   justify-content: center;
+   color: white;
+   margin-top: -5px;
+   margin-bottom: 30px;
+}
+.rember{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+input[type="text"]{
+    width: 100%;
+    border: 1px solid rgb(196, 190, 190);
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 30px; 
+    display: flex; 
+}
+.user{
+    display: flex;
+ position: relative;
+}
+.bi-person-fill,.bi-lock-fill{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+button{
+width: 100%;
+border-radius: 20px;
+padding: 10px;
+border: none;
+font-size: 15px;
+font-weight: 600;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+.register{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 5px;
+}
+a:link{
+    color: white;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <form method="get">
+            <h1>Login</h1>
+<div class="user">
+<input type="text" name="username" placeholder="Username">
+<span class="bi bi-person-fill"></span>
+</div>
+<div class="user">
+    <input type="text" name="password" placeholder="Password">
+    <span class="bi bi-lock-fill"></span>
+</div>
+<div class="rember">
+    <div>
+        <input type="checkbox" name="rember">Rember me
+    </div>
+    <div>Forgot password?</div>
+</div>
+<button type="submit">Login</button>
+<div class="register">
+    <span>Don't have an Account?</span>
+    <span><a href="#">Register</a></span>
+</div>
+        </form>
+    </div>
+</body>
+</html>
