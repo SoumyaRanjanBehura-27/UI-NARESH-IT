@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <style>
+        body{
+            background-image: url(./images/FB.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            background-color: gray;
+            width: 400px;
+            height: 500px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-box{
+             display: grid;
+            grid-template-columns: 6fr 6fr;
+        }
+    </style>
+</head>
+<body>
+    <form method="get">
+        <diV class="form-box">
+            <div class="form-container">
+                <div><label for="firstname">First Name</label>
+                    <input type="text" name="firstname">
+                </div>
+                <div><label for="email">E-mail</label>
+                    <input type="email" name="email">
+                </div>
+                <div><label for="number">Mobile no.</label>
+                    <input type="text" name="number">
+                </div>          
+            </div>
+            <div class="form-container">
+                <div><label for="lastname">Last Name</label>
+                    <input type="text" name="lastname">
+                </div>
+                <div>
+                    <label>Select your city</label>
+                  <div>
+                      <select>
+                            <option>JAJPUR</option>
+                            <option>BHADRAK</option>
+                            <option>KHURDA</option>
+                            <option>CUTTACK</option>
+                            <option>BALESORE</option>
+                            <option>KEONJHAR</option>
+                            <option>GANJAM</option>
+                            <option>PURI</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                    <label>Select your state</label>
+                    <div>
+                        <select>
+                            <option>ODISHA</option>
+                            <option>DELHI</option>
+                            <option>TELENGANA</option>
+                            <option>KARNATAK</option>
+                            <option>MUMBAI</option>
+                            <option>ANDHRA PRADESSH</option>
+                            <option>TAMILNADU</option>
+                            <option>GUJURAT</option>
+                    </select>
+                    </div>
+                </div>
+                
+            </div>
+        </diV>
+        <div class="radio-container">
+        <div class="radio-item">
+            <input type="radio" name="male"><label for="male">Male</label>
+        </div>
+        <div  class="radio-item">
+            <input type="radio" name="female"><label for="female">Female</label>
+        </div>
+
+        <div  class="radio-item">
+            <input type="radio" name="others"> <label for="others">Others</label>
+        </div>
+        </div>
+        <div class="skill-container">
+            <label>Enter your course</label>
+            <div class="skill-item">
+<input type="checkbox" name="python"><label for="python">Fullstack Python with Gen AI</label>
+            </div>
+             <div class="skill-item">
+<input type="checkbox" name="java"><label for="java">Fullstack Java with Gen AI</label>
+            </div> <div class="skill-item">
+<input type="checkbox" name="python"><label for="python">Fullstack Data Science with Gen AI</label>
+            </div>
+             <div class="skill-item">
+<input type="checkbox" name="python"><label for="cloud">Multi cloud with Devops </label>
+            </div>
+             <div class="skill-item">
+<input type="checkbox" name="python"><label for="AI">AI & ML</label>
+            </div>
+
+        </div>
+         <div>
+                <input type="checkbox" name="terms"><label>I agree with all terms and conditions</label>
+            </div>
+            <div>
+                <button type="submit" class="login">Login</button>
+            </div>
+            <div>
+                <button type="reset" class="reset">Reset</button>
+            </div>
+    </form>
+</body>
+</html>
