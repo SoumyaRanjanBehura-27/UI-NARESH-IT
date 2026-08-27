@@ -13,37 +13,164 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            color: white;
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            background-color: rgb(96, 93, 93);
+            border-radius: 10px;
+            padding: 5px;
+            width: 300px;
+            margin-left: 90px; 
+            transition-duration: 1s; 
+        }
+        h1:hover{
+            cursor: pointer;
+            transform: scale(1.1,1.1);
+            transition-duration: 1s;
         }
         form{
             background-color: gray;
-            width: 400px;
-            height: 500px;
-            padding: 20px;
+            width: 500px;
+            height: 600px;
+            padding: 30px;
             border-radius: 10px;
+           background: rgba(115, 112, 118, 0.25);
+            backdrop-filter: blur(5px);
+            transition-duration: 1s;
+        }
+        form:hover{
+            transform: scale(1.1,1.1);
+            transition-duration: 1s;
+        }
+        input[type="text"]{
+         width: 150px; 
+         padding: 10px;  
+         border: 1px solid gray;
+         border-radius: 5px;
+        background-color: transparent;
+        color: white;
+        font-size: 16px;
+        }
+        input[type="email"]{
+          width: 150px; 
+         padding: 10px;  
+         border: 1px solid gray;
+         border-radius: 5px;
+        background-color: transparent;  
+         font-size: 16px;
+          color: white;
+        }
+        select{
+           width: 180px; 
+         padding: 10px;  
+         border: 1px solid gray;
+         border-radius: 5px;
+        background-color: transparent; 
+        color: white;   
+        }
+        select:focus{
+            outline: none;
+        }
+        option{
+            background-color: black;
+        }
+        input:focus{
+            outline: none;
+        }
+        label{
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 16px; 
         }
         .form-box{
              display: grid;
             grid-template-columns: 6fr 6fr;
         }
+        .radio-container{
+            display: flex;
+            gap: 50px;
+            margin-top: 15px;
+        }
+        .radio-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+    
+        }
+         .radio-item label{
+            font-size: 18px;
+         }
+        .skill-container{
+          display: grid;
+          grid-template-columns: 6fr 6fr;
+           
+        }
+        .skill-item{
+            display: flex;
+        }
+        button{
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+            transition-duration: 1s;
+        }
+        button:hover{
+            transform: scale(1.1,1.1);
+        }
+       #login{
+        background-color: rgb(59, 59, 243);
+        color: white;
+        font-size: 18px;
+       }
+       #reset{
+        background-color: red;
+         color: white;
+        font-size: 18px;
+       }
+       .check{
+        display: flex;
+        margin-top: 15px;
+        justify-content: center;
+        margin-bottom: 10px;
+       }
+       .condition{
+        display: flex;
+        justify-content: center;
+        margin-left: 80px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        color: red;
+        font-size: 17px;
+       }
+      
     </style>
 </head>
 <body>
     <form method="get">
+        <h1>Register Here !</h1>
         <diV class="form-box">
             <div class="form-container">
                 <div><label for="firstname">First Name</label>
-                    <input type="text" name="firstname">
+                    <input type="text" name="firstname" pattern="^[A-Z][a-z]{4,16}" placeholder="your name">
                 </div>
                 <div><label for="email">E-mail</label>
-                    <input type="email" name="email">
+                    <input type="email" name="email"  placeholder="@gmail.com">
                 </div>
                 <div><label for="number">Mobile no.</label>
-                    <input type="text" name="number">
+                    <input type="text" name="number" pattern="^/+91/d{10}" placeholder="+91 89176XXXXX">
                 </div>          
             </div>
             <div class="form-container">
                 <div><label for="lastname">Last Name</label>
-                    <input type="text" name="lastname">
+                    <input type="text" name="lastname"  placeholder="Last name">
                 </div>
                 <div>
                     <label>Select your city</label>
@@ -78,44 +205,56 @@
                 
             </div>
         </diV>
-        <div class="radio-container">
+        
+      <div>
+        <h2 style="margin-bottom: -10px;">Gender</h2>
+          <div class="radio-container">
+            
         <div class="radio-item">
             <input type="radio" name="male"><label for="male">Male</label>
         </div>
         <div  class="radio-item">
-            <input type="radio" name="female"><label for="female">Female</label>
+            <input type="radio" name="male"><label for="male">Female</label>
         </div>
 
         <div  class="radio-item">
-            <input type="radio" name="others"> <label for="others">Others</label>
+            <input type="radio" name="male"> <label for="male">Others</label>
         </div>
         </div>
-        <div class="skill-container">
-            <label>Enter your course</label>
-            <div class="skill-item">
+      </div>
+        <div>
+            <h2 style="display: flex; justify-content: center; margin-top: 6px; margin-bottom: 6px;">! Enter Your Course !</h2>
+            <div class="skill-container">
+           
+           <div>
+             <div class="skill-item">
 <input type="checkbox" name="python"><label for="python">Fullstack Python with Gen AI</label>
             </div>
              <div class="skill-item">
 <input type="checkbox" name="java"><label for="java">Fullstack Java with Gen AI</label>
-            </div> <div class="skill-item">
+           </div>
+           </div>
+           <div>
+              <div class="skill-item">
 <input type="checkbox" name="python"><label for="python">Fullstack Data Science with Gen AI</label>
             </div>
              <div class="skill-item">
 <input type="checkbox" name="python"><label for="cloud">Multi cloud with Devops </label>
             </div>
-             <div class="skill-item">
-<input type="checkbox" name="python"><label for="AI">AI & ML</label>
-            </div>
+           </div>
 
         </div>
-         <div>
+        </div>
+        <div>
+             <div class="check">
                 <input type="checkbox" name="terms"><label>I agree with all terms and conditions</label>
             </div>
+        </div>
             <div>
-                <button type="submit" class="login">Login</button>
+                <button type="submit" id="login" class="login">Login</button>
             </div>
             <div>
-                <button type="reset" class="reset">Reset</button>
+                <button type="reset" id="reset" class="reset">Reset</button>
             </div>
     </form>
 </body>
