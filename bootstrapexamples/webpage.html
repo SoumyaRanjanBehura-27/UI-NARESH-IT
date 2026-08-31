@@ -7,19 +7,36 @@
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <title>Shopping Page</title>
+    <style>
+       
+    </style>
 </head>
 <body> 
     <!--NAv BAR-->
     <header>
-       <div class="d-flex justify-content-between align-items-center bg-danger-subtle text-black py- px-3">
-       <div><h1>SHOPPING</h1></div>
-       <div>
-       <button class="btn btn-primary"><span class="bi bi-person-fill"></span></button>
-       <button class="btn btn-danger"><span class="bi bi-heart"></span></button>
-       <button class="btn btn-warning"><span class="bi bi-cart4"></span></button>
-       <button class="btn btn-success">Login</button>
-       </div>
-       </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid">
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+         <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand">SHOPKART</span>
+    <div class="navbar-collapse collapse" id="menu">
+         <ul class="navbar-nav" > 
+            <li class="nav-item"><a class="nav-link">Home</a></li>
+            <li class="nav-item"><a class="nav-link">About</a></li>
+            <li class="nav-item"><a class="nav-link">Blog</a></li>
+            <li class="nav-item"><a class="nav-link">Help </a></li>
+            <li class="nav-item">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search ">
+                    <button class="btn btn-warning bi bi-search"></button>
+                </div>
+            </li>
+
+         </ul>
+    </div>
+</div>
+    </nav>
     </header>
     <!--Carousel Section-->
 <section>
@@ -49,33 +66,35 @@
         </div>
     </div>
 </section>
+<!--Nav Tab Section-->
 <section>
 <div class=" bg-warning-subtle mt-4 ">
     <div>
          <ul class="nav nav-tabs d-flex justify-content-around">
 <li class="nav-item">
-    <a href="#mens" data-bs-toggle="tab" class="nav-link">Mens Wear</a>
+    <a href="#mens" data-bs-toggle="tab" class="nav-link active">Mens Wear</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link">Womens Wear</a>
+    <a href="#womens" data-bs-toggle="tab" class="nav-link">Womens Wear</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link">Foot Wear</a>
+    <a href="#footwear" data-bs-toggle="tab" class="nav-link">Foot Wear</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link">Electronics</a>
+    <a href="#electronics" data-bs-toggle="tab" class="nav-link">Electronics</a>
 </li>
         </ul>
        </div>
-        <div class="tab-content">
-        <div class="tab-pane" id="mens">
-           <div class="card">
-            <img src="../public/images/backshirt.webp">
-            <div class="card-header">Roadster
+        <div class="tab-content d-flex justify-content-center">
+        <div class="tab-pane active" id="mens">
+          <div class="row">
+             <div class="card mt-4 col-3 p-0" style="height: 450px; width: 300px;">
+            <img src="../public/images/backshirt.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">Roadster
                 <p>color : Black</p>
             </div>
             <div class="card-body">
-                $600.00
+                <h3>$600.00inr.</h3>
                 <div>
                     <span class="bi bi-star-fill text-warning"></span>
                     <span  class="bi bi-star-fill text-warning"></span>
@@ -86,15 +105,417 @@
                 </div>
             </div>
            </div>
+            <div class="card p-0 mt-4 ms-2 col-3" style="height: 450px; width: 300px;">
+            <img src="../public/images/buergundy.webp"  width="300px" height="250px">
+            <div class="card-header fw-semibold">Roadster
+                <p>color : Buergundy</p>
+            </div>
+            <div class="card-body">
+                <h3>$700.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+            <div class="card p-0 mt-4 ms-2 col-3" style="height: 450px; width: 300px;">
+            <img src="../public/images/navy.webp"  width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+    
+            <div class="card p-0 mt-4 ms-2 col-3" style="height: 450px; width: 300px;">
+            <img src="../public/images/mens1.webp"  width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Green</p>
+            </div>
+            <div class="card-body">
+                <h3>$650.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+           </div>
+            <div class="row align-items-center" style="margin-left: 300px;">
+            <div class="card p-0 mt-4 ms-2 col-6" style="height: 450px; width: 300px;">
+            <img src="../public/images/baggy1.webp"  width="300px" height="250px">
+            <div class="card-header fw-semibold">Roadster
+                <p>color : Black</p>
+            </div>
+            <div class="card-body">
+                <h3>$800.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+            <div class="card p-0 mt-4 ms-2 col-6" style="height: 450px; width: 300px;">
+            <img src="../public/images/baggy2.webp"  width="300px" height="250px">
+            <div class="card-header fw-semibold">HIghlander
+                <p>color : Beige</p>
+            </div>
+            <div class="card-body">
+                <h3>$850.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+          </div>
         </div>
         <div class="tab-pane" id="womens">
-
+           <div class="row">
+              <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/womens1.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/womens2.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/womens3.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+           </div>
+           <div class="row">
+             <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/womens4.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/womens5.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/womens6.webp"width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+           </div>
         </div>
         <div class="tab-pane" id="footwear">
-
+<div class="row">
+      <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/s1.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/s2.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>  
+           <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/s3.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div> 
+           </div> 
+           <div class="row">
+           <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/s4.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>  <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/s5.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>  <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/s6.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+</div>
         </div>
         <div class="tab-pane" id="electronics">
-
+          <div class="row">
+               <div class="card p-0 mt-4 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/m1.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card mt-4 p-0 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/m2.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card mt-4 p-0 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/m3.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+           </div>
+           <div class="row">
+             <div class="card mt-4 p-0 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/m4.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card mt-4 p-0 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/m5.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+             <div class="card mt-4 p-0 ms-2 col-4" style="height: 450px; width: 300px;">
+            <img src="../public/images/m6.webp" width="300px" height="250px">
+            <div class="card-header fw-semibold">the indian Garage co.
+                <p>color : Navy Blue</p>
+            </div>
+            <div class="card-body">
+                <h3>$750.00inr.</h3>
+                <div>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                    <span  class="bi bi-star-fill text-warning"></span>
+                </div>
+            </div>
+           </div>
+          </div>
         </div>
     </div>
 
