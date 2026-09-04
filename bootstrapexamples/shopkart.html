@@ -37,11 +37,11 @@
                 <div class="dropdown" data-bs-theme="dark">
                 <button data-bs-toggle="dropdown" class="dropdown-toggle btn btn bg-success">Account</button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-person-fill-gear"></span>your Account</a></span></li>
-                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-map-fill"></span>Saved Address</a></span></li>
-                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-heart-fill"></span>Whishlist</a></span></li>
+                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-person-fill-gear me-1"></span>your Account</a></span></li>
+                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-map-fill me-1"></span>Saved Address</a></span></li>
+                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-heart-fill me-1"></span>Whishlist</a></span></li>
                   <li class="dropdown-divider"></li>
-                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-lock"></span>Logout</a></span></li>
+                  <li class="dropdown-item"><span class="dropdown-item-text"><a><span class="bi bi-lock me-1"></span>Logout</a></span></li>
                 </ul>
                 </div>
             </div>
@@ -93,26 +93,26 @@
     <section>
         <div class="carousel carousel-fade" data-bs-ride="carousel" id="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-bs-interval="1500">
                     <img src="../public/images/caro1.jpg" class="w-100" style="height: 400px;">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="1500">
                      <img src="../public/images/caro2.png"  class="w-100" style="height: 400px;">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="1500">
                      <img src="../public/images/caro3.jpg"  class="w-100" style="height: 400px;">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="1500">
                      <img src="../public/images/caro4.jpg"  class="w-100" style="height: 400px;">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="1500">
                      <img src="../public/images/caro5.png"  class="w-100" style="height: 400px;">
                 </div>
             </div>
-            <button class="carousel-control-prev" data-bs-slide="next" data-bs-target="#carousel"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carousel"><span class="carousel-control-prev-icon"></span></button>
             <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carousel"><span class="carousel-control-next-icon"></span></button>
             <div class="carousel-indicators">
-                <button class="active" style="width: 20px; height: 20px; border-radius: 100%;" data-bs-slide-to="0" data-bs-target="#carousel"></button>
+                <button style="width: 20px; height: 20px; border-radius: 100%;" data-bs-slide-to="0" data-bs-target="#carousel" class="active"></button>
                 <button style="width: 20px; height: 20px; border-radius: 100%;" data-bs-slide-to="1" data-bs-target="#carousel"></button>
                 <button style="width: 20px; height: 20px; border-radius: 100%;" data-bs-slide-to="2" data-bs-target="#carousel"></button>
                 <button style="width: 20px; height: 20px; border-radius: 100%;" data-bs-slide-to="3" data-bs-target="#carousel"></button>
@@ -120,18 +120,108 @@
             </div>
         </div>
     </section>
+    <!--NAV-TAB SECTION-->
     <section>
         <div class="nav nav-tabs d-flex justify-content-around bg-danger-subtle">
             <span class="nav-item"><a class="nav-link">Mens</a></span>
             <span class="nav-item"><a class="nav-link">Womens</a></span>
-            <span class="nav-item"><a class="nav-link">Kids</a></span>
+            <span class="nav-item"><a class="nav-link">Shoes</a></span>
             <span class="nav-item"><a class="nav-link">Others</a></span>
         </div>
 
             <div class="tab-content">
-                <div class="tab-pane"></div>
+                <div class="tab-pane" id="men">
+
+                </div>
+                <div class="tab-pane" id="women">
+
+                </div>
+                <div class="tab-pane" id="shoes">
+
+                </div>
+                <div class="tab-pane" id="others">
+
+                </div>
             </div>
 
+    </section>
+    <!--Accordion Section-->
+    <section>
+       <div class="accordion" id="faqs" >
+        <div class="accordion-item">
+            <div class="accordion-collapse">
+                <div class="accordion-header">
+                    <button data-bs-toggle="collapse" data-bs-target="#q1" class="accordion-button">What are the new GST rates in India?</button>
+                </div>
+               <div class="accordion-collapse collapse" id="q1" data-bs-parent="#faqs">
+                 <div class="accordion-body">
+                    <p>Earlier there were multiple GST rate slabs like 0%, 5%, 12%, 18% and 28%. Now they’ve been streamlined to 5%(merit rate), 18%(standard rate) and 40%(luxury goods). The new GST rates will be effective from September 22, 2025, with the exception of tobacco products.</p>
+                </div>
+               </div>
+
+            </div>
+        </div>
+    
+        <div class="accordion-item">
+            <div class="accordion-collapse">
+                <div class="accordion-header">
+                    <button data-bs-toggle="collapse" data-bs-target="#q2" class="accordion-button">What happens if I bought a product before the new rates, but the invoice is issued after September 22?</button>
+                </div>
+               <div class="accordion-collapse collapse" id="q2" data-bs-parent="#faqs">
+                 <div class="accordion-body">
+                    <p>All orders placed/shipped on/after Sep 22 will have the new GST rates applied to the product. In case your order was shipped before Sep 22, you will see old GST rates on your invoice. To know more about GST rates, visit the official page of Central Board of Indirect Taxes and Customs here: https://www.cbic.gov.in</p>
+                </div>
+               </div>
+
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-collapse">
+                <div class="accordion-header">
+                    <button data-bs-toggle="collapse" data-bs-target="#q3" class="accordion-button">What happens if I bought a product via Cash on Delivery (COD) before the new rates, but the invoice is issued after September 22?</button>
+                </div>
+               <div class="accordion-collapse collapse" id="q3" data-bs-parent="#faqs">
+                 <div class="accordion-body">
+                    <p>All orders placed/shipped on/after Sep 22 will have the new GST rates applied to the product. In case your order was shipped before Sep 22, you will see old GST rates on your invoice. To know more about GST rates, visit the official page of Central Board of Indirect Taxes and Customs here: https://www.cbic.gov.in</p>
+                </div>
+               </div>
+
+            </div>
+        <div class="accordion-item">
+            <div class="accordion-collapse">
+                <div class="accordion-header">
+                    <button data-bs-toggle="collapse" data-bs-target="#q4" class="accordion-button">Why does my invoice show the old GST rate although my order ws delivered on/after September 22?</button>
+                </div>
+               <div class="accordion-collapse collapse" id="q4" data-bs-parent="#faqs">
+                 <div class="accordion-body">
+                    <p>GST rates are applied based on when the order is shipped by the seller and invoice generated. If your order was shipped by the seller before Sep 22, old GST rates will apply and same will reflect on your invoice.</p>
+                </div>
+               </div>
+
+            </div>
+
+
+        </div>
+       </div>
+    </section>
+     <!--List Group-->
+    <section>
+        <div class="d-flex justify-content-around align-items-center">
+        
+               <ul class="list-unstyled list-group list-group-horizontal mt-4 ">
+            <li class="list-group-item list-group-item-danger">Group-1</li>
+            <li class="list-group-item list-group-item-primary">Group-2</li>
+            <li class="list-group-item list-group-item-success">Group-3</li>
+            <li class="list-group-item list-group-item-warning">Group-4</li>
+        </ul>
+         
+            <ul class="breadcrumb mt-4"  style="--bs-breadcrumb-divider: '>';">
+                <li class="breadcrumb-item text-danger">Electronics</li>
+                <li class="breadcrumb-item text-primary">Mobile</li>
+                <li class="breadcrumb-item text-success">Samsung</li>
+                <li class="breadcrumb-item text-warning">S26 ultra</li>
+            </ul>
+        </div>
     </section>
 </body>
 </html>
