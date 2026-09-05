@@ -6,12 +6,90 @@
     <title>Document</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <script type="text/javascript">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+     <script type="text/javascript" src="../src/scripts/home.js"></script>
 
     </script>
     
 </head>
-<body>
-    
+<body class="container-fluid" onload="bodyLoad()">
+    <section>
+       <div id="ButtonContainer">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#select">Quick Booking</button>
+          </div>
+          <div class="modal w-100" id="select">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h1 id="booking">Quick Booking</h1>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div>
+                    <div>
+                        <div class="d-flex justify-content-between align-items-baseline mt-3">
+                             <select class="form-select ms-2 rounded rounded-pill" id="movie">
+                            <option>select movie name</option>
+                            <option>HANUMAN ANSH</option>
+                            <option>MAHAPRABHU JAGANNATH</option>
+                        </select>
+                        <select class="form-select mx-2 rounded rounded-pill" id="date">
+                            <option>select date</option>
+                            <option>today, 05 sep.</option>
+                            <option>tommorrow, 06 sep.</option>
+                        </select>
+                        <select class="form-select rounded rounded-pill" id="cinema">
+                            <option>select cinema hall</option>
+                            <option>PVR musarambagh, Hyderabad</option>
+                            <option>Inox Odeon mall, Hyderabad</option>
+                            <option>PVR panjagutta, Hyderabad</option>
+                            <option>PVR Inorbit, Hyderabad</option>
+                        </select>
+                        <select class="form-select mx-2 rounded rounded-pill" id="timing">
+                            <option>select time</option>
+                            <option>10.15am hindi</option>
+                            <option>11.00am hindi</option>
+                            <option>02.20pm hindi</option>
+                            <option>10.00pm hindi</option>
+                        </select>
+                        <button onclick="Bookclick()" id="btnbook" class="btn btn-primary me-2 rounded rounded-pill" data-bs-dismiss="modal">BOOK</button>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--summary section-->
+    <section id="SummaryContainer">
+        <div  class="w-25" >
+        <div class="card w-100 m-1">
+            <div class="card-header w-100 d-flex justify-content-between">
+                <span class="bi bi-ticket-detailed"></span><h5>Booking Details</h5>
+            </div>
+            <div class="card-body">
+                <img id="imgposter" class="w-100" style="height: 250px;">
+                <div>
+                    <dl class="mt-2">
+                        <dt>movie</dt>
+                        <dd id="lblmovie"></dd>
+                         <dt>Date</dt>
+                        <dd  id="lbldate"></dd>
+                          <dt>Cinema</dt>
+                        <dd  id="lblcinema"></dd>
+                           <dt>Timing</dt>
+                          <dd  id="lbltiming"></dd> 
+                    </dl>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-warning bi bi-pen-fill w-100" data-bs-toggle="modal" data-bs-target="#select" onclick="modify()"> Modify Booking</button>
+            </div>
+        </div>
+       
+        </div>
+    </section>
+
+   
 </body>
 </html>
