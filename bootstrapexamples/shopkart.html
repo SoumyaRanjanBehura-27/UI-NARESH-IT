@@ -89,9 +89,29 @@
             </div>
         </div>
     </section>
+    <!--LIST Section-->
+       <section>
+        <div class="d-flex justify-content-around align-items-center">
+        
+        <ul class="list-unstyled list-group list-group-horizontal mt-4 ">
+            <li class="list-group-item list-group-item-dark"><button class="btn btn-sm" data-bs-toggle="offcanvas" data-bs-target="#logmenu"><span class="bi bi-justify"></span></button></li>
+            <li class="list-group-item list-group-item-danger">Group-1</li>
+            <li class="list-group-item list-group-item-primary">Group-2</li>
+            <li class="list-group-item list-group-item-success">Group-3</li>
+            <li class="list-group-item list-group-item-warning">Group-4</li>
+        </ul>
+         
+            <ul class="breadcrumb mt-4"  style="--bs-breadcrumb-divider: '>';">
+                <li class="breadcrumb-item text-danger">Electronics</li>
+                <li class="breadcrumb-item text-primary">Mobile</li>
+                <li class="breadcrumb-item text-success">Samsung</li>
+                <li class="breadcrumb-item text-warning">S26 ultra</li>
+            </ul>
+        </div>
+    </section>
     <!--carousel section-->
     <section>
-        <div class="carousel carousel-fade" data-bs-ride="carousel" id="carousel">
+        <div class="carousel carousel-fade mt-4 mb-4" data-bs-ride="carousel" id="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="1500">
                     <img src="../public/images/caro1.jpg" class="w-100" style="height: 400px;">
@@ -608,24 +628,27 @@
         </div>
        </div>
     </section>
-     <!--List Group-->
-    <section>
-        <div class="d-flex justify-content-around align-items-center">
-        
-               <ul class="list-unstyled list-group list-group-horizontal mt-4 ">
-            <li class="list-group-item list-group-item-danger">Group-1</li>
-            <li class="list-group-item list-group-item-primary">Group-2</li>
-            <li class="list-group-item list-group-item-success">Group-3</li>
-            <li class="list-group-item list-group-item-warning">Group-4</li>
-        </ul>
-         
-            <ul class="breadcrumb mt-4"  style="--bs-breadcrumb-divider: '>';">
-                <li class="breadcrumb-item text-danger">Electronics</li>
-                <li class="breadcrumb-item text-primary">Mobile</li>
-                <li class="breadcrumb-item text-success">Samsung</li>
-                <li class="breadcrumb-item text-warning">S26 ultra</li>
-            </ul>
-        </div>
-    </section>
+   <!--OFFCANVAS Section-->
+<section>
+     <div class="offcanvas offcanvas-start bg-black text-white" id="logmenu">
+<div class="offcanvas-header">
+    <h3>SHOPKART</h3>
+    <button class="btn btn-close btn btn-close-white" data-bs-dismiss="offcanvas"></button>
+</div>
+<div class="offcanvas-body">
+    <ul class="list-unstyled mb-3">
+        <li class="my-3"><span class="bi bi-clipboard me-2"></span> <a href="#" class="text-decoration-none text-white">Dashboard</a></li>
+        <li><span class="bi bi-person-circle me-2"></span>  <a href="#" class="text-decoration-none text-white">Users</a></li>
+        <li class="my-3"><span class="bi bi-copy me-2"></span> <a href="#" class="text-decoration-none text-white">Categories</a></li>
+        <li><span class="bi bi-handbag me-2"></span> <a href="#" class="text-decoration-none text-white">courses</a></li>
+        <li class="my-3"><span class="bi bi-bag me-2"></span> <a href="#" class="text-decoration-none text-white">Orders</a></li>
+        <li><span class="bi bi-card-image me-2"></span> <a href="#" class="text-decoration-none text-white">pages</a></li>
+    </ul>
+</div>
+<div class="offcanvas-bottom mb-3">
+   <button class="btn btn-lg text-white bi bi-box-arrow-left"><span class="ms-2">Logout</span></button>
+</div>
+ </div>
+</section>
 </body>
 </html>
