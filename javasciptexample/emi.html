@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../src/scripts/emi.js" type="text/javascript">
+
+    </script>
+</head>
+<body class="container-fluid">
+    <diV class="d-flex justify-content-center mb-4">
+       <div>
+         <h1 style="font-size: 50px;">Personal Loan EMI Calculator</h1>
+        <p class="d-flex align-items-center justify-content-center">Take Out the Guess Work from Financial Planning. Calculate your EMIs now!</p>
+       </div>
+
+    </diV>
+    <div class="row">
+<div class="col" style="height: 300px;">
+   <div class="card p-4 bg-primary-subtle">
+     <div>
+        <div class="d-flex flex-row justify-content-between mb-2">
+            <div>Loan Amount</div>
+            <div>
+                <input type="text"  style="width: 150px;" id="txtamount">
+            </div> 
+        </div>
+        <div>
+            <input type="range" class="form-range"  id="rangeamount"  min="10000" max="5000000" value="100000" step="10000" onchange="amountchange()">
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>&#8377; 25000</span>
+            <span>&#8377; 50,00,000</span>
+        </div>
+    </div>
+    <div>
+        <div class="d-flex flex-row justify-content-between mt-3 mb-2">
+            <div>Loan Tenure</div>
+            <div>
+                <input type="text" id="txtyear" style="width: 150px;">
+            </div> 
+        </div>
+        <div>
+            <input type="range" class="form-range" id="rangeyear" min="1" max="7" value="1" step="1" onchange="yearchange()">
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>1 year</span>
+            <span>7 years</span>
+        </div>
+    </div>
+    <div>
+        <div class="d-flex flex-row justify-content-between mt-3 mb-2">
+            <div>Interest Rate</div>
+            <div>
+                <input type="text" style="width: 150px;" id="txtrate">
+            </div> 
+        </div>
+        <div>
+            <input type="range" class="form-range" min="9.99" max="24" value="10.45" step="0.01" id="rangerate" onchange="ratechange()">
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+            <span>9.99% PA</span>
+            <span>24% PA</span>
+        </div>
+    </div>
+   <div class="d-flex justify-content-between" style="margin-left: 200px;"><button class="btn btn-primary w-50" id="caculate" onclick="calEmi()">CALCULATE</button></div>
+   </div>
+</div>
+<div class="col">
+<div class="card bg-primary-subtle">
+   <div class="card-header">
+     <h2>Calculate your EMI</h2>
+   </div>
+<div class="card-body">
+    <h1 id="result"></h1>
+</div>
+</div>
+</div>
+    </div>
+</body>
+</html>
