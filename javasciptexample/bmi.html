@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="../src/scripts/bmi.js"></script>
+</head>
+<body>
+   <div class="row">
+      <div class="col m-5">
+        <div class="card p-3 bg-success-subtle" style="height: 300px; width: 400px;">
+           <div class="d-flex justify-content-between">
+            <div class="d-flex gap-4">
+                <label for="age">Age</label>
+                <span>
+                    <input type="text" id="ageinput" name="age">
+                </span>
+            </div>
+            <div>
+                ages: 2 - 120
+            </div>
+           </div>
+           <div class="d-flex gap-4 align-items-center mt-3">
+            <h4>Gender</h4>
+            <div class="d-flex gap-1 fs-6"><input type="radio" name="gender"><label for="gender">Male</label></div>
+            <div class="d-flex gap-1 fs-6"><input type="radio" name="gender"><label for="gender">Female</label></div>
+           </div>
+           <div class="d-flex align-items-center gap-4 mt-3">
+            <label>Height</label>
+            <div class="position-relative">
+                <input type="text" id="heightinput" style="width: 250px; margin-left: 12px;">
+                <div class="position-absolute end-0 top-0 pe-2">cm</div>
+            </div>
+           </div>
+           <div class="d-flex gap-4 align-items-center mt-4">
+            <label>Weight</label>
+           <div class="position-relative">
+             <input type="text" id="weightinput" style="width: 250px; margin-left: 12px;">
+             <div class="position-absolute end-0 top-0 pe-2">kg</div>
+           </div>
+           </div>
+            <button class="btn btn-success mt-5" onclick="btnclick()">Calculate</button>
+        </div>
+       
+      </div>
+      <div class="col mt-5 ms-4">
+        <div class="card p-3 border-0 bg-success-subtle" style="height: 300px; width: 400px;">
+<div class="card-header bg-success d-flex justify-content-between align-items-center">
+    <h3>Results</h3>
+    <div class="d-flex flex-column align-items-center">
+        <span class="bi bi-save-fill"></span>
+        <span style="margin-top: -10px;">save</span>
+    </div>
+</div>
+<div class="card-body border-1 border border-black mt-2">
+<div class="d-flex align-items-center"><h4>BMI = </h4><h4 id="result"></h4><span>kg/m<sup>2</sup></span></div>
+</div>
+        </div>
+      </div>
+   </div>
+</body>
+</html>
