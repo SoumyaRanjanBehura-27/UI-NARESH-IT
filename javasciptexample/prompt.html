@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt</title>
+     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+        function addfile(){
+            foldername=prompt("Enter folder name: ");
+            folders=document.getElementById("folders");
+            if(foldername===null){
+                alert("you are cancelled");
+            }
+            else if(foldername===""){
+                alert("please provide a folder name !");
+            }else{
+             folders.innerHTML +=`<li class='bg-primary-subtle p-1 rounded rounded-2 d-flex justify-content-between ms-3'><span><span class='bi bi-folder mx-1 fs-5'></span> <span class='fs-4'><b> ${foldername} </b></span> </span><span class='bi bi-trash text-danger mx-1 fs-5'></span></li><br>`;
+            }
+        }
+        function clearfile(){
+            document.getElementById("folders").innerHTML="";
+        }
+    </script>
+</head>
+<body class="container-fluid d-block justify-content-center mt-5">
+    <div>
+        <button class="btn btn-success mx-4" onclick="addfile()"><span class="bi bi-folder-plus me-1"></span>Add file</button>
+        <button class="btn btn-outline-danger" onclick="clearfile()"><span class="bi bi-trash-fill me-1"></span>Clear All</button>
+    </div>
+    <ul class="mt-3 w-25 list-unstyled" id="folders">
+
+    </ul>
+</body>
+</html>
