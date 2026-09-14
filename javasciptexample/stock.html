@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+   <script type="text/javascript">
+    function submitclick(){
+        document.getElementById("lblid").textContent=document.getElementById("txtid").value;
+        document.getElementById("lblname").textContent=document.getElementById("txtname").value;
+        document.getElementById("lblcategory").textContent=document.getElementById("txtopt").value;
+        document.getElementById("lblrating").textContent=document.getElementById("txtrange").value;
+        stockcheckbox=document.getElementById("txtstock");
+      if( stockcheckbox.checked){
+ document.getElementById("lblstock").textContent="Available"
+      }else{
+         document.getElementById("lblstock").textContent="Out Of Stock"
+      }
+    }
+   </script>
+</head>
+<body class="container-fluid row">
+    <div class="card col p-2 w-25">
+        <h3 class="d-flex justify-content-center">Register Product</h3>
+        <dl>
+            <dt>Product ID</dt>
+            <dd><input type="number" class="form-control" id="txtid"></dd>
+            <dt>Product Name</dt>
+            <dd><input class="form-control" type="text" id="txtname"></dd>
+            <dt>Category</dt>
+            <dd>
+                <select class="form-select" id="txtopt">
+            <option>Select category</option>
+            <option>electronics</option>
+            <option>Fashion</option>
+                </select>
+            </dd>
+            <dt>Stock</dt>
+            <dd class="form-switch">
+                <input type="checkbox" class="form-check-input" id="txtstock"><label class="form-check-label ms-1">Availabe !</label>
+            </dd>
+            <dt>Ratings</dt>
+            <dd>
+                <input type="range" class="form-range" min="1" max="5" step="0.5" value="2" id="txtrange">
+                <div>
+                    <span class="">1<span class="bi bi-star-fill text-warning ms-1"></span></span>
+                    <span class="float-end">2<span class="bi bi-star-fill text-warning ms-1"></span></span>
+                </div>
+            </dd>
+            <dd>
+                <button class="btn btn-success w-100 mt-2" onclick="submitclick()">Submit</button>
+            </dd>
+        </dl>
+    </div>
+    <div class="card col p-2 alert alert-success alert-dismissible">
+        <h3 class="d-flex justify-content-center">Product Details</h3>
+<button class="btn btn-close"  data-bs-dismiss=alert></button>
+         <dl class="row">
+            <dt class="col-3">Product ID</dt>
+            <dd class="col-9" id="lblid"></dd>
+            <dt class="col-3">Product Name</dt>
+            <dd class="col-9" id="lblname"></dd>
+            <dt class="col-3">Category</dt>
+            <dd class="col-9" id="lblcategory"></dd>
+            <dt class="col-3">Stock</dt>
+            <dd class="col-9" id="lblstock"></dd>
+            <dt class="col-3">Ratings</dt>
+            <dd class="col-9" id="lblrating"></dd>
+         </dl>
+    </div>
+</body>
+</html>
