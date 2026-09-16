@@ -9,18 +9,42 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script type="text/javascript">
      function pwd(){
-        
+        var password=document.getElementById("pwdinput").value;
+        var lblpwd=document.getElementById("lblpwd");
+        var regexp=/^(?=.*[A-Z])\w{4,10}\W$/;
+        var progressbar=document.getElementById("progressbar");
+        if(password.match(regexp)){
+            lblpwd.innerHTML="strongpassword";
+            progressbar.className="progress-bar bg-success progress-bar-animated progress-bar-striped";
+            progressbar.style.width="100%";
+        }else{
+            if(password.length<4){
+                lblpwd.innerHTML="poor password";
+                progressbar.className="progress-bar bg-danger progress-bar-animated progress-bar-striped";
+                progressbar.style.width="30%";
+            }else{
+                lblpwd.innerHTML="weak password";
+                 progressbar.className="progress-bar bg-warning progress-bar-animated progress-bar-striped";
+                progressbar.style.width="70%";
+            }
+        }
      }
     </script>
 </head>
 <body class="container-fluid">
-    <dl>
+  <section class="d-flex justify-content-center">
+      <dl class="w-25 mt-4 ">
         <dt>Password</dt>
-        <dd><input type="text" id="pwdinput" onkeyup="pwd()" class="form-control w-25">
+        <dd><input type="text" id="pwdinput" onkeyup="pwd()" class="form-control w-50">
         </dd>
         <dd class="progress" id="progress">
-            <div class="progress-bar"></div>
+            <div class="progress-bar" id="progressbar">
+                <span id="lblpwd" class="text-white"></span>
+            </div>
         </dd>
     </dl>
+   
+    </div>
+  </section>
 </body>
 </html>
