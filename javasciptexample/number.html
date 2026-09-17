@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifying Contact Number</title>
+     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+        var pattern=/^$/;
+        var tip="select country name";
+        function countrychange(){
+            var countryname=document.getElementById("countrychange").value;
+            var imgposter=document.getElementById("imgposter");
+            if(countryname==="INDIA"){
+               imgposter.src="../public/images/ind.png";
+               pattern=/^\+91\d{10}$/;
+               tip="india mobile code +91 and 10 digits";
+            }else if(countryname==="USA"){
+              imgposter.src="../public/images/usa.png";  
+              pattern=/^\+\(1\)\(\d{3}\)\(\d{3}\)\s\d{3}-\d{4}$/
+              tip="US mobile code +(1)(000) 000-0000";
+            }else if(countryname==="UNITED KINGDOM"){
+                 imgposter.src="../public/images/uk.webp";  
+                 pattern=/^\+\(44\)\(00\)\s \d{4}\s\d{4}$/;
+                 tip="UK mobile code +(44)(00) 0000 0000";
+            }else{
+                imgposter.src="";
+                imgposter.alt="N/A";
+                pattern=//;
+                tip="please select your country";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div>
+        <dl class="w-25">
+            <dt>Select Your Country</dt>
+            <dd class="input-group mt-4">
+                <select class="form-select" id="countrychange" onchange="countrychange()">
+                    <option>select coutry</option>
+                    <option>INDIA</option>
+                    <option>USA</option>
+                    <option>UNITED KINGDOM</option>
+                </select>
+                <img class="input-group-text" width="70" id="imgposter">
+            </dd>
+        </dl>
+    </div>
+</body>
+</html>
