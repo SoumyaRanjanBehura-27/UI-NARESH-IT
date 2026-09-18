@@ -9,7 +9,7 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script type="text/javascript">
         var pattern=/^$/;
-        var tip="select country name";
+        var tip="select yoyr country name";
         function countrychange(){
             var countryname=document.getElementById("countrychange").value;
             var imgposter=document.getElementById("imgposter");
@@ -31,14 +31,25 @@
                 pattern=//;
                 tip="please select your country";
             }
+             document.getElementById("txtnum").placeholder=tip;
         }
+        function verifyclick(){
+        var mobilenumber =document.getElementById("txtnum").value;
+        var lblmobile=document.getElementById("lblmobile");
+        if(mobilenumber.match(pattern)){
+            document.write(`<h1>your mobile number${mobilenumber}verified successfully</h1>`)
+        }else{
+            lblmobile.innerHTML=`invalid mobile number <br> ${tip}`.fontcolor('red').fontsize(2);
+        }
+        }
+
     </script>
 </head>
-<body class="container-fluid">
-    <div>
-        <dl class="w-25">
+<body class="container-fluid d-flex justify-content-center" style="margin-top: 200px;">
+    <div class="card w-25 p-3 mt-4">
+        <dl class="w-100">
             <dt>Select Your Country</dt>
-            <dd class="input-group mt-4">
+            <dd class="input-group mt-3">
                 <select class="form-select" id="countrychange" onchange="countrychange()">
                     <option>select coutry</option>
                     <option>INDIA</option>
@@ -47,7 +58,13 @@
                 </select>
                 <img class="input-group-text" width="70" id="imgposter">
             </dd>
+            <dt>Enter Mobile Number</dt>
+            <dd>
+                <input type=text class="form-control mt-2" id="txtnum">
+            </dd>
+            <dd id="lblmobile"></dd>
         </dl>
+        <button class="btn btn-primary" onclick="verifyclick()">Verify</button>
     </div>
 </body>
 </html>
