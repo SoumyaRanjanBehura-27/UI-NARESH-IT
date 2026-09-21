@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+     <meta charset="UTF-8">
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>Document</title>
+
+     <script type="text/javascript">
+
+          var categories = ["Home", "Fashion", "Mobiles", "Footwear", "Kids"];
+
+          function bodyload(){
+
+               categories.map(function(category){
+
+                    var li = document.createElement("li");
+
+                    li.textContent = category;
+
+                    document.querySelector("ol").appendChild(li);
+
+
+                    var option = document.createElement("option");
+
+                    option.text =category;
+
+                    option.value = category;
+
+                    document.querySelector("select").appendChild(option);
+
+                    var span = document.createElement("span");
+
+                    span.innerHTML = `<a href='${category}.html'>${category}</a>`;
+
+                    document.querySelector("nav").appendChild(span);
+
+
+
+               })
+
+          }
+
+     </script>
+
+     <style>
+
+          nav {
+
+               display: flex;
+
+               flex-direction: row;
+
+               justify-content: space-between;
+
+               border: 1px solid black;
+
+               padding: 20px;
+
+          }
+
+     </style>
+</head>
+<body onload="bodyload()">
+
+     <nav>
+
+     </nav>
+
+    <ol>
+
+    </ol>
+
+    <select>
+
+    </select>
+
+</body>
+
+</html>
