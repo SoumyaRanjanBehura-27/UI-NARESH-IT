@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        var iphone={
+         "title":"Apple Iphone 18pro",
+         "price": "189900",
+         "image": "../public/images/i18.webp",
+         "rating":{
+            "rate":"4.6",
+            "ratings":"25486",
+            "reviews":"9781"
+         },
+          "features":["128 GB ROM",
+          "15.49 cm(6.1inch) Super Retina XDR Display",
+          "48mp+12mp | 12mo Front Camera",
+          "A16 Bionic Chip, 6 core processor",
+          "1 Year warrenty for phone and 1 year warrenty in box Accessories"]
+        }
+function bodyload(){
+document.getElementById("imgproduct").src=iphone.image;
+document.getElementById("lbltitle").textContent=iphone.title;
+document.getElementById("lblrating").innerHTML=`<span class="bg-success"></span>`
+}
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload() ">
+<div class="row mt-4">   
+<div class="col-3">
+    <img width="100%" id="imgproduct">
+</div>
+<div class="col-6">
+<div id="lbltitle" class="fs-4 fw-bold bi bi-dot"></div>
+<div id="lblrating"></div>
+</div>
+<div class="col-3">
+    <div id="lblrating"></div>
+</div>
+</div>
+</body>
+</html>

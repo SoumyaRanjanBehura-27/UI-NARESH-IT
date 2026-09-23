@@ -9,6 +9,9 @@ document.getElementById("result").innerHTML=emi.toLocaleString('en-in',{style:'c
 function amountchange(){
     document.getElementById("txtamount").value =document.getElementById("rangeamount").value;
 }
+function changeamount(){
+    document.getElementById("rangeamount").value = document.getElementById("txtamount").value;
+}
 function yearchange(){
     document.getElementById("txtyear").value = document.getElementById("rangeyear").value;
 }

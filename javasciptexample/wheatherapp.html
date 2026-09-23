@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="../src/scripts/wheather.js">
+
+    </script>
+</head>
+<body class="container-fluid" onload="loadweather()">
+    <header>
+        <div class="m-4 bg-light">
+            <div class="input-group">
+<span class="input-group-text"><span class="bi bi-geo-alt"></span></span>
+<input type="text" class="form-control" id="txtcity" placeholder="Enter Your City">
+<button class="bi bi-search btn btn-warning" onclick="searchclick()"></button>
+            </div>
+            
+        </div>
+        <div class="d-flex justify-content-around mt-3 mb-3">
+<a href="javascript:cityweather('Odisha')">Odisha</a>
+<a href="javascript:cityweather('Hyderabad')">Hyderabad</a>
+<a href="javascript:cityweather('Mumbai')">Mubai</a>
+<a href="javascript:cityweather('Bangalore')">Bangalore</a>
+        </div>
+    </header>
+    <section class="m-5 p-5 bg-light">
+        <div class="card p-4">
+<div class="card-header">
+    <span id="lblcity" class="fs-3 fw-bold"></span>
+    <div id="lbldescription" class=" mt-2 fs-5 fw-bold ">
+
+    </div>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col">
+            <div class="bi bi-clouds fs-1"></div>
+            <div id="lbltemp" class="fw-bold" style="font-size: 100px;"></div>
+        
+        </div>
+        <div class="col d-flex flex-row justify-content-center align-items-center">
+           <div class="card bg-dark text-white p-4" style="width: 130px;">
+            <div id="lblhumidity" class="fs-5 fw-bold"></div>
+           </div>
+           <div class="card m-2 bg-black text-white p-4" style="width: 170px;">
+           <div id="lblspeed" class="fs-5 fw-bold text-white"></div>
+           </div>
+        </div>
+    </div>
+
+</div>
+        </div>
+    </section>
+</body>
+</html>
