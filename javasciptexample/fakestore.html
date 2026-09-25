@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKESTORE API</title>
+    <Link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="../src/scripts/fakestore.js"></script>
+</head>
+<body onload="bodyload()">
+    <header class="d-flex justify-content-between align-items-center bg-primary-subtle p-3">
+        <div><span class="bi bi-bag fs-2 me-2"></span>
+        <span class="fs-2">FAKESHOP</span></div>
+        <div class="input-group" style="width: 300px;">
+            <div>
+                <input type="text" class="form-control" placeholder="Search here">
+            </div>
+            <button class="bi bi-search btn btn-warning" onclick="searchclick()"></button>
+        </div>
+         <div class="fs-5">
+            <span><a href="#">Men's Wear</a></span>
+            <span class="mx-5"><a href="#">Women's Wear</a></span>
+            <span><a href="#">Electronics</a></span>
+            <span class="ms-5"><a href="#">Jewallary</a></span>
+        </div>
+        <div class="fs-5">
+            <span class="bi bi-person-circle "></span>
+            <span class="bi bi-heart mx-3"></span>
+            <span class="bi bi-cart4"></span>
+        </div>
+    </header>
+    <section class="row mt-4 ms-2">
+        <div class="col-2">
+            <div>
+                <select class="form-select" id="lstcategories">
+
+
+                </select>
+            </div>
+            <div class="mt-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><input type="checkbox"  class="form-check-input me-2"><label>4<span class="bi bi-star-fill text-success ms-1"></span></label></li>
+                    <li class="list-group-item my-3"><input type="checkbox"  class="form-check-input me-2"><label>3<span class="bi bi-star-fill text-warning ms-1"></span></label></li>
+                    <li class="list-group-item"><input type="checkbox"  class="form-check-input me-2"><label>2<span class="bi bi-star-fill text-danger ms-1"></span></label></li>
+                </ul>
+            </div>
+            <div class="border border-1 border-light-subtle p-2 mt-4 rounded">
+                <label>Price</label>
+                <div>
+                    <input type="range" class="form-range">
+                    <div class="d-flex justify-content-between">
+                        <span>Min</span>
+                        <span>Max</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main class="col-10 d-flex flex-wrap">
+
+        </main>
+    </section>
+</body>
+</html>
