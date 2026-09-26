@@ -15,7 +15,7 @@
         <span class="fs-2">FAKESHOP</span></div>
         <div class="input-group" style="width: 300px;">
             <div>
-                <input type="text" class="form-control" placeholder="Search here">
+                <input type="text" class="form-control" placeholder="Search here" id="txtsearch">
             </div>
             <button class="bi bi-search btn btn-warning" onclick="searchclick()"></button>
         </div>
@@ -28,13 +28,13 @@
         <div class="fs-5">
             <span class="bi bi-person-circle "></span>
             <span class="bi bi-heart mx-3"></span>
-            <span class="bi bi-cart4"></span>
+            <span class="bi bi-cart4 position-relative"></span>
         </div>
     </header>
     <section class="row mt-4 ms-2">
         <div class="col-2">
             <div>
-                <select class="form-select" id="lstcategories">
+                <select class="form-select" id="lstcategories" onchange="selectchange()">
 
 
                 </select>
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <main class="col-10 d-flex flex-wrap">
+        <main class="col-10 d-flex flex-wrap overflow-auto" style="height: 550px;">
 
         </main>
     </section>
