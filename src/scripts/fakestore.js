@@ -18,6 +18,7 @@ function loadcategories(){
 function bodyload(){
     loadcategories();
     loadproducts(`https://fakestoreapi.com/products`);
+    getcartcount();
 }
 function loadproducts(url){
     document.querySelector("main").innerHTML = "";
@@ -32,7 +33,7 @@ function loadproducts(url){
         div.style.width="200px";
         div.innerHTML=` 
          <img class="card-img-top" height="120" width="200px" src=${product.image}> 
-         <div class="card-header" style="height:130px;">
+         <div class="card-header" style="height:150px; font-size: 15px;">
          ${product.title}
          </div>
          <div class="card-body">
@@ -82,5 +83,18 @@ function addclick(id){
         cartitem.push(product);
         alert(`${product.title}\nAdded to Cart`);
         getcartcount();
+    })
+}
+function showcart(){
+    document.querySelector("tbody").innerHTML=""
+    cartitem.map(function(item){
+        var tr=document.createElement("tr");
+        var tdtitle=document.createElement("tr");
+        var tdimage=document.createElement("tr");
+        tdtitle.innerHTML=item.title;
+        tdimage.innerHTML=`<img width="50px" height="50px" src=${item.image}>`
+        tr.appendChild(tdtitle);
+        tr.appendChild(tdimage);
+        document.querySelector("tbody").appendChild(tr);
     })
 }
