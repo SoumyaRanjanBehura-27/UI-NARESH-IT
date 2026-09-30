@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+        function bodyload(){
+            fetch(`https://dummyjson.com/products`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(object){
+                object.products.map(function(product){
+                    var tr=document.createElement("tr");
+                    var tdtitle=document.createElement("td");
+                    var tdpreview=document.createElement("td");
+                    var tdprice=document.createElement("td");
+                    var tdcategory=document.createElement("td");
+                    var tdactions=document.createElement("td");
+                    tdtitle.innerHTML=product.title;
+                    tdpreview.innerHTML=`<img width="50" height="50" src=${product.thumbnail}>`;
+                    tdprice.innerHTML=product.price;
+                    tdcategory.innerHTML=product.category;
+                    tdactions.innerHTML=`<button class="btn btn-warning bi bi-pen-fill"></button><button class="btn btn-danger bi bi-trash mx-2"></button>`
+                    tr.appendChild(tdtitle);
+                    tr.appendChild(tdpreview);
+                    tr.appendChild(tdprice);
+                    tr.appendChild(tdcategory);
+                    tr.appendChild(tdactions);
+                    document.querySelector("tbody").appendChild(tr);
+
+                })
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <table class="table table-hover">
+   <thead>
+      <tr>
+        <th width="300">Title</th>
+        <th>Preview</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+   </thead>
+   <tbody>
+
+   </tbody>
+    </table>
+</body>
+</html>
