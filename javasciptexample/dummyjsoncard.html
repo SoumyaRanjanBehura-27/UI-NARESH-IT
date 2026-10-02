@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <script type="text/javascript">
+        function loadrecipes(id){
+            document.getElementById("instructions").innerHTML ="";
+            fetch(`https://dummyjson.com/recipes/${id}`)
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(recipe){
+                document.getElementById("lbltitle").innerHTML=recipe.name;
+                document.getElementById("imgpreview").src=recipe.image;
+                document.getElementById("details").innerHTML=`
+                <span class="bi bi-clock-history">Preparation Time ${recipe.prepTimeMinutes} min.</span>
+                `;
+                recipe.instructions.map(function(instruction){
+                    var li=document.createElement("li");
+                    li.className="list-group-item my-1";
+                    li.innerHTML=`${instruction}`;
+                    document.getElementById("instructions").appendChild(li);
+                })
+            })
+        }
+        function bodyload(){
+            loadrecipes(1);
+        }
+        var recipeid=1
+        function rightclick(){
+            recipeid++;
+            loadrecipes(recipeid);
+        }
+        function leftclick(){
+            recipeid--;
+            loadrecipes(recipeid);
+        }
+    </script>
+</head>
+<body class="container-fluid row" onload="bodyload()">
+    <div class="card col-6">
+        <div class="card-header d-flex justify-content-center">
+            <div id="lbltitle" class="fw-bold"></div>
+        </div>
+        <div class="card-body">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-1">
+                    <button onclick="leftclick()" class="btn btn-dark bi bi-chevron-left"></button>
+                </div>
+                <div class="col-10">
+                    <img height="400px" width="100%" id="imgpreview">
+                    <div id="details" class="fw-medium d-flex justify-content-center mt-2"></div>
+                </div>
+                <div class="col-1"><button  onclick="rightclick()" class="btn btn-dark bi bi-chevron-right"></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-success col-6 w-50 overflow-auto alert-dismissible">
+        <h5>Instructions</h5>
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
+        <ul class="list-group p-3" id="instructions">
+
+        </ul>
+    </div>
+</body>
+</html>
