@@ -14,74 +14,51 @@
 
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-
     <script>
-        function LoadRecipie(id){
-
-            document.getElementById("instructions").innerHTML = "";
-
-            fetch(`https://dummyjson.com/recipes/${id}`)
-
-            .then(function(response){
-
-                 return response.json();
-
-            })
-
-            .then(function(recipe){
-
-                document.getElementById("lblTitle").innerHTML = recipe.name;
-
-                document.getElementById("imgPreview").src = recipe.image;
-
-                document.getElementById("details").innerHTML = `
-
-                   <span class="bi bi-clock"> Preperation Time : ${recipe.prepTimeMinutes} min </span>
-
-                
-
-                `;
-
-                recipe.instructions.map(function(instruction){
-
-                     var li = document.createElement("li");
-
-                     li.className = "list-group-item list-group-item-light my-1";
-
-                     li.innerHTML = `${instruction}`;
-
-                     document.getElementById("instructions").appendChild(li);
-
-                })
-
-            })
-
-        }
-
-
 
         function bodyload(){
 
-            LoadRecipie(1);
+            fetch(`https://dummyjson.com/products`)
 
-        }
+            .then(function(response){
 
-        var recipeId = 1;
+                return response.json();
 
-        function NextClick(){
+            })
 
-            recipeId++;
+            .then(function(object){
 
-            LoadRecipie(recipeId);
+                 object.products.map(function(product){
 
-        }
+                      var div = document.createElement("div");
 
-        function PrevClick(){
+                      div.className = "card m-2 p-2";
 
-            recipeId--;
+                      div.style.width = "200px";
 
-            LoadRecipie(recipeId);
+                      div.innerHTML= `
+
+                         <img src=${product.thumbnail} height="100" class="card-img-top">
+
+                         <div class="card-header" style="height:90px">
+
+                            ${product.title}
+
+                         </div>
+
+                         <div class="card-footer">
+
+                            <button class="btn btn-warning w-100"> Buy </button>
+
+                        </div>
+
+                      `;
+
+                      document.querySelector("body").appendChild(div);
+
+                 })
+
+            })
 
         }
 
@@ -89,34 +66,10 @@
 
 </head>
 
-<body class="container-fluid row"  onload="bodyload()">
-    <div class="card w-50 col-6 p-2 ms-3">
-        <div class="card-header text-center fw-bold fs-5">
-            <div id="lblTitle"></div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-                    <button onclick="PrevClick()" class="btn btn-dark bi bi-chevron-left"></button>
-                </div>
-                <div class="col-10">
-                    <img id="imgPreview" height="400" width="100%">
-                    <div class="my-2 fw-bold text-center" id="details">
-                     </div>
-                </div>
-                <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-                    <button onclick="NextClick()" class="btn btn-dark bi bi-chevron-right"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="alert col w-25  overflow-auto alert-success alert-dismissible">
-        <h5>Instructions</h5>
-        <button class="btn btn-close" data-bs-dismiss="alert"></button>
-        <ul class="list-group p-3" id="instructions">
+<body class="container-fluid d-flex flex-wrap" onload="bodyload()">
 
-        </ul>
-    </div>
+    
+
 </body>
 
 </html>
