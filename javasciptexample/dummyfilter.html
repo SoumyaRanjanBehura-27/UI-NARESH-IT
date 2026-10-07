@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummyjson</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+        function loadproducts(url){
+            document.querySelector("section").innerHTML=""
+            fetch(url)
+            .then(function(response){
+                return response.json();
+           })
+           .then(function(object){
+            object.products.map(function(product){
+                var div=document.createElement("div");
+                div.className="card m-2 p-2"
+                div.style.width="200px"
+                div.innerHTML = `
+    <!-- Image Header with Availability Badge -->
+    <div class="position-relative bg-light text-center p-3">
+      <span class="badge ${product.stock > 0 ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'} position-absolute top-0 end-0 m-3 rounded-pill">
+        ${product.availabilityStatus || (product.stock > 0 ? 'In Stock' : 'Out of Stock')}
+      </span>
+      <img 
+        src="${product.thumbnail || product.images?.[0]}" 
+        class="img-fluid object-fit-contain" 
+        style="height: 160px;" 
+        alt="${product.title}" 
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Body -->
+    <div class="card-body d-flex flex-column p-3">
+      <div class="text-uppercase text-muted fw-bold small mb-1">${product.brand || product.category}</div>
+      <h6 class="card-title text-truncate fw-semibold mb-2" title="${product.title}">
+        ${product.title}
+      </h6>
+      
+      <!-- Rating -->
+      <div class="d-flex align-items-center mb-3">
+        <span class="badge bg-warning text-dark me-1">★ ${product.rating ? product.rating.toFixed(1) : 'N/A'}</span>
+        <small class="text-muted ms-1">(${product.reviews?.length || 0})</small>
+      </div>
+
+      <!-- Price -->
+      <div class="mt-auto pt-2">
+        <span class="fs-5 fw-bold text-dark">$${product.price}</span>
+      </div>
+    </div>
+
+    <!-- Footer Action -->
+    <div class="card-footer bg-white border-0 p-3 pt-0">
+      <button class="btn btn-primary w-100 rounded-pill fw-semibold shadow-sm d-flex align-items-center justify-content-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </svg>
+        Add to Cart
+      </button>
+    </div>
+  `;
+               
+                document.querySelector("section").appendChild(div);
+            })
+           })
+        }
+        function loadcategories(){
+            fetch(`https://dummyjson.com/products/categories`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(categories){
+                categories.map(function(category){
+                    var option = document.createElement("option");
+                    option.text=category.name;
+                    option.value=category.slug;
+                    document.getElementById("lstcategories").appendChild(option);
+                })
+            })
+           
+        }
+        function bodyload(){
+            loadproducts(`https://dummyjson.com/products`);
+            loadcategories();
+        }
+        function categorychange(){
+            var categoryname=document.getElementById("lstcategories").value;
+            if(categoryname==""){
+                loadproducts(`https://dummyjson.com/products`)
+            }else{
+                loadproducts(`https://dummyjson.com/products/category/${categoryname}`);
+            }
+
+        }
+    </script>
+</head>
+<body class="container-fluid row" onload="bodyload()">
+    <nav class="col-2">
+        <select class="form-select" onchange="categorychange()" id="lstcategories" size="10">
+
+        </select>
+    </nav>
+    <section class="col-10 d-flex flex-wrap overflow-auto" style="height: 600px;">
+
+    </section>
+</body>
+</html>

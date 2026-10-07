@@ -16,9 +16,13 @@
 
     <script>
 
-        function bodyload(){
 
-            fetch(`https://dummyjson.com/products`)
+
+        function LoadProducts(url){
+
+            document.querySelector("section").innerHTML = "";
+
+            fetch(url)
 
             .then(function(response){
 
@@ -54,7 +58,34 @@
 
                       `;
 
-                      document.querySelector("body").appendChild(div);
+                      document.querySelector("section").appendChild(div);
+
+                 })
+
+            })
+
+        }
+        function LoadCategories(){
+
+            fetch(`https://dummyjson.com/products/categories`)
+
+            .then(function(response){
+
+                return response.json();
+
+            })
+
+            .then(function(categories){
+
+                 categories.map(function(category){
+
+                       var option = document.createElement("option");
+
+                       option.text = category.name;
+
+                       option.value = category.slug; 
+
+                       document.getElementById("lstCategories").appendChild(option);
 
                  })
 
@@ -62,14 +93,43 @@
 
         }
 
+        function bodyload(){
+
+            LoadProducts(`https://dummyjson.com/products&#39;`);
+
+            LoadCategories();
+
+        }
+        function CategoryChange(){
+
+            var categoryName = document.getElementById("lstCategories").value;
+
+            if(categoryName===""){
+
+                LoadProducts(`https://dummyjson.com/products&#39;`);
+
+            } else {
+
+                LoadProducts(`https://dummyjson.com/products/category/${categoryName}`);
+
+            }
+
+        }
     </script>
 
 </head>
 
-<body class="container-fluid d-flex flex-wrap" onload="bodyload()">
+<body class="container-fluid row" onload="bodyload()">
 
-    
+   <nav class="col-2"> 
 
+      <label>Select Category</label>
+
+      <select class="form-select" onchange="CategoryChange()" id="lstCategories" size="10">
+      </select>
+   </nav>
+   <section class="col-10 d-flex flex-wrap overflow-auto" style="height: 600px;">
+
+   </section>
 </body>
-
 </html>
