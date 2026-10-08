@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Explorer</title>
+    <!-- Bootstrap CSS & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style type="text/css">
+        :root {
+            --bs-body-bg: #f8f9fa;
+        }
+
+        .recipe-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            padding-top: 66.66%; /* 3:2 Aspect Ratio */
+            overflow: hidden;
+            border-radius: 0.75rem;
+            background-color: #e9ecef;
+        }
+
+        .img-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            transform: scale(1.1);
+        }
+
+        .instructions-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-height: 580px;
+        }
+
+        .instruction-item {
+            border: none;
+            background: #f8f9fa;
+            border-radius: 0.5rem !important;
+            margin-bottom: 0.5rem;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .badge-pill {
+            padding: 0.5em 0.8em;
+            border-radius: 50rem;
+        }
+        
+        /* Custom scrollbar for instructions */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light min-vh-100 py-4 py-md-5">
+
+    <div class="container">
+        <!-- Header -->
+        <header class="text-center mb-4">
+            <h1 class="fw-bold text-dark"><i class="bi bi-journal-richtext text-warning me-2"></i>Recipe Explorer</h1>
+            <p class="text-muted">Discover delicious recipes one step at a time</p>
+        </header>
+
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Left Column: Recipe Preview Card -->
+            <div class="col-12 col-lg-6">
+                <div class="card recipe-card h-100 p-3 p-md-4 bg-white">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h3 id="lbltitle" class="fw-bold fs-3 mb-0 text-truncate me-2 d-flex justify-content-center w-100">Loading...</h3>
+                        <span id="badgeDifficulty" class="badge bg-warning text-dark badge-pill d-none">Easy</span>
+                    </div>
+
+                    <!-- Image Preview Area with Nav Overlay/Sides -->
+                    <div class="position-relative d-flex align-items-center justify-content-center my-auto">
+                        <button id="btnPrev" onclick="leftclick()" class="btn btn-dark nav-btn me-2" disabled>
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        
+                        <div class="flex-grow-1">
+                            <div class="img-container">
+                                <img id="imgpreview" src="" alt="Recipe preview" class="opacity-0">
+                                <div id="imgLoader" class="position-absolute top-50 start-50 translate-middle">
+                                    <div class="spinner-border text-primary" role="status"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="btnNext" onclick="rightclick()" class="btn btn-dark nav-btn ms-2">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Recipe Meta Details -->
+                    <div id="details" class="d-flex flex-wrap justify-content-around align-items-center mt-3 pt-3 border-top text-muted small fw-medium">
+                        <div><i class="bi bi-clock-history me-1 text-primary"></i> Prep: -- min</div>
+                        <div><i class="bi bi-fire me-1 text-danger"></i> Cook: -- min</div>
+                        <div><i class="bi bi-people me-1 text-success"></i> Servings: --</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Instructions List -->
+            <div class="col-12 col-lg-6">
+                <div class="card instructions-card h-100 bg-white">
+                    <div class="card-header bg-white border-0 pt-4 px-4 pb-0 d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-list-task me-2 text-primary"></i>Instructions</h5>
+                        <span id="stepCount" class="badge bg-light text-dark border">0 steps</span>
+                    </div>
+                    <div class="card-body p-4 overflow-auto custom-scroll" style="max-height: 480px;">
+                        <ol class="list-group list-group-numbered p-0" id="instructions">
+                            <!-- Dynamically generated list items -->
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        let recipeid = 1;
+
+        async function loadrecipes(id) {
+            const instructionsList = document.getElementById("instructions");
+            const imgPreview = document.getElementById("imgpreview");
+            const imgLoader = document.getElementById("imgLoader");
+            const btnPrev = document.getElementById("btnPrev");
+            const btnNext = document.getElementById("btnNext");
+
+            // UI Loading state
+            instructionsList.innerHTML = `<div class="text-center py-5 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Loading instructions...</div>`;
+            imgPreview.classList.add("opacity-0");
+            imgLoader.classList.remove("d-none");
+            btnPrev.disabled = true;
+            btnNext.disabled = true;
+
+            try {
+                const response = await fetch(`https://dummyjson.com/recipes/${id}`);
+                if (!response.ok) throw new Error("Recipe not found");
+                
+                const recipe = await response.json();
+
+                // Populate Text & Image
+                document.getElementById("lbltitle").innerText = recipe.name;
+                imgPreview.src = recipe.image;
+                
+                // Show Image when loaded
+                imgPreview.onload = () => {
+                    imgPreview.classList.remove("opacity-0");
+                    imgLoader.classList.add("d-none");
+                };
+
+                // Metadata Details
+                document.getElementById("details").innerHTML = `
+                    <div class="my-1"><i class="bi bi-clock me-1 text-primary"></i> <strong>Prep:</strong> ${recipe.prepTimeMinutes} mins</div>
+                    <div class="my-1"><i class="bi bi-fire me-1 text-danger"></i> <strong>Cook:</strong> ${recipe.cookTimeMinutes} mins</div>
+                    <div class="my-1"><i class="bi bi-people me-1 text-success"></i> <strong>Servings:</strong> ${recipe.servings}</div>
+                `;
+
+                // Render Instructions
+                instructionsList.innerHTML = "";
+                recipe.instructions.forEach((instruction) => {
+                    const li = document.createElement("li");
+                    li.className = "list-group-item instruction-item d-flex justify-content-between align-items-start";
+                    li.innerHTML = `<div class="ms-2 me-auto">${instruction}</div>`;
+                    instructionsList.appendChild(li);
+                });
+
+                document.getElementById("stepCount").innerText = `${recipe.instructions.length} Steps`;
+
+            } catch (error) {
+                document.getElementById("lbltitle").innerText = "Recipe Not Found";
+                instructionsList.innerHTML = `<div class="alert alert-danger">Unable to load recipe details. Please try again.</div>`;
+                imgLoader.classList.add("d-none");
+            } finally {
+                // Button state controls
+                btnPrev.disabled = (recipeid <= 1);
+                btnNext.disabled = false;
+            }
+        }
+
+        function bodyload() {
+            loadrecipes(recipeid);
+        }
+
+        function rightclick() {
+            recipeid++;
+            loadrecipes(recipeid);
+        }
+
+        function leftclick() {
+            if (recipeid > 1) {
+                recipeid--;
+                loadrecipes(recipeid);
+            }
+        }
+
+        window.onload = bodyload;
+    </script>
+</body>
+</html>
