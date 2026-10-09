@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA — Redefining Luxury & Innovation</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style type="text/css">
+        :root {
+            --bg-dark: #090a0f;
+            --bg-card: rgba(18, 20, 29, 0.7);
+            --bg-card-hover: rgba(26, 30, 44, 0.85);
+            --accent-gold: #e2b714;
+            --accent-glow: #38ef7d;
+            --accent-violet: #7f00ff;
+            --accent-cyan: #00d2ff;
+            --text-main: #f8f9fa;
+            --text-muted: #9ba3af;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(226, 183, 20, 0.3);
+            --nav-height: 80px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Ambient Glows */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glow-1 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(127, 0, 255, 0.25), transparent 70%);
+            top: -100px;
+            left: -100px;
+        }
+        .glow-2 {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.18), transparent 70%);
+            top: 600px;
+            right: -150px;
+        }
+        .glow-3 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(226, 183, 20, 0.15), transparent 70%);
+            bottom: 300px;
+            left: 20%;
+        }
+
+        .navbar-custom {
+            height: var(--nav-height);
+            transition: all 0.4s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .navbar-custom.scrolled {
+            background: rgba(9, 10, 15, 0.85) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #fff 30%, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-logo i {
+            color: var(--accent-gold);
+            -webkit-text-fill-color: initial;
+            filter: drop-shadow(0 0 10px rgba(226, 183, 20, 0.6));
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #fff !important;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 80%;
+        }
+
+        /* Search Bar & Trigger */
+        .search-trigger-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            border-radius: 30px;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .search-trigger-btn:hover {
+            border-color: var(--accent-cyan);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        .search-modal .modal-content {
+            background: rgba(15, 17, 26, 0.95);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+        .search-input-lg {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            border-radius: 12px;
+            padding: 15px 20px 15px 50px;
+            font-size: 1.1rem;
+        }
+        .search-input-lg:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-gold);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(226, 183, 20, 0.2);
+        }
+        .search-icon-inside {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .hero-section {
+            padding-top: calc(var(--nav-height) + 60px);
+            padding-bottom: 100px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(226, 183, 20, 0.1);
+            border: 1px solid var(--border-glow);
+            padding: 6px 18px;
+            border-radius: 50px;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            background: linear-gradient(180deg, #ffffff 0%, #a0a5b5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #ffe57f 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 580px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* Buttons */
+        .btn-luxury-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+            color: #000;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(226, 183, 20, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-luxury-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(226, 183, 20, 0.5);
+            color: #000;
+        }
+        .btn-luxury-outline {
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 30px;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .btn-luxury-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Image Container */
+        .hero-img-wrapper {
+            position: relative;
+            border-radius: 24px;
+            padding: 12px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.01));
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+        .hero-img-inner {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-img-inner img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        .hero-img-wrapper:hover .hero-img-inner img {
+            transform: scale(1.04);
+        }
+
+        /* Floating Cards on Hero */
+        .floating-badge-card {
+            position: absolute;
+            background: rgba(18, 20, 29, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-glass);
+            padding: 15px 22px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: floatAnim 4s ease-in-out infinite alternate;
+        }
+        .badge-1 { top: 10%; right: -20px; }
+        .badge-2 { bottom: 12%; left: -20px; animation-delay: -2s; }
+
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-12px); }
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 35px 28px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-card-hover);
+            border-color: rgba(226, 183, 20, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(226, 183, 20, 0.1);
+            border: 1px solid var(--border-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover .feature-icon-box {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 25px rgba(226, 183, 20, 0.6);
+        }
+
+        .stats-section {
+            background: linear-gradient(180deg, rgba(18, 20, 29, 0.4) 0%, rgba(9, 10, 15, 0.8) 100%);
+            border-y: 1px solid var(--border-glass);
+            padding: 70px 0;
+            margin: 80px 0;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .avatar-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+        }
+
+        /* Newsletter */
+        .newsletter-card {
+            background: linear-gradient(135deg, rgba(26, 30, 44, 0.9), rgba(18, 20, 29, 0.95));
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            border-radius: 30px;
+            padding: 14px 25px;
+            width: 100%;
+        }
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.09);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(226, 183, 20, 0.2);
+        }
+
+        .footer {
+            background: #050608;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 80px;
+            padding-bottom: 30px;
+            color: var(--text-muted);
+        }
+        .footer-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(226, 183, 20, 0.5);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: #000;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 10px 25px rgba(226, 183, 20, 0.4);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: #fff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .hero-title { font-size: 2.8rem; }
+            .badge-1, .badge-2 { display: none; }
+            .navbar-collapse {
+                background: rgba(15, 17, 26, 0.98);
+                padding: 20px;
+                border-radius: 16px;
+                border: 1px solid var(--border-glass);
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Sticky Glass Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="mainNavbar">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand brand-logo" href="#">
+                <i class="fa-solid fa-crown"></i> AURA
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+
+            <!-- Nav Items -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#collection">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stats">Impact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                </ul>
+
+                <!-- Right Side Actions: Search & CTA -->
+                <div class="d-flex align-items-center gap-3">
+                    <div class="search-trigger-btn" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="d-none d-md-inline small">Search collection...</span>
+                    </div>
+                    <a href="#newsletter" class="btn btn-luxury-primary btn-sm px-4">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Interactive Search Modal Overlay -->
+    <div class="modal fade search-modal" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-3">
+                <div class="modal-body">
+                    <div class="position-relative mb-4">
+                        <i class="fa-solid fa-magnifying-glass search-icon-inside fs-5"></i>
+                        <input type="text" class="form-control search-input-lg" id="searchInput" placeholder="Type to search (e.g., Luxury Watch, Gold Edition, AI Studio)...">
+                    </div>
+                    
+                    <div class="search-results-wrapper" id="searchResults">
+                        <p class="text-uppercase small fw-bold text-muted mb-3">Popular Suggestions</p>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge bg-dark border border-secondary text-light p-2 cursor-pointer search-tag"><i class="fa-solid fa-fire text-warning me-1"></i> Chronograph Gold</span>
+                            <span class="badge bg-dark border border-secondary text-light p-2 cursor-pointer search-tag">Quantum Processor</span>
+                            <span class="badge bg-dark border border-secondary text-light p-2 cursor-pointer search-tag">Emerald Edition</span>
+                            <span class="badge bg-dark border border-secondary text-light p-2 cursor-pointer search-tag">Private Concierge</span>
+                        </div>
+                        <div class="list-group list-group-flush bg-transparent" id="dynamicResultsList">
+                            <!-- JS populates search results dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-sparkles"></i> The Next Generation Luxury
+                    </div>
+                    <h1 class="hero-title">
+                        Elegance Meets <span class="text-gradient-gold">Unmatched Precision.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Experience bespoke craftsmanship crafted for visionaries. Aura blends hyper-modern aesthetics with seamless technological integration to transform your lifestyle.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#collection" class="btn btn-luxury-primary">
+                            Explore Collection <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#features" class="btn btn-luxury-outline">
+                            <i class="fa-solid fa-circle-play me-2 text-warning"></i> Watch Keynote
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-img-wrapper position-relative">
+                        <div class="hero-img-inner">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop" alt="Luxury Showcase" class="img-fluid" onerror="this.src='https://placehold.co/600x600/12141d/ffffff?text=Aura+Luxury+Edition'">
+                        </div>
+
+                        <!-- Floating Badges -->
+                        <div class="floating-badge-card badge-1">
+                            <i class="fa-solid fa-gem fs-3 text-warning"></i>
+                            <div>
+                                <h6 class="mb-0 text-white fw-bold">100% Authentic</h6>
+                                <small class="text-muted">Certified Craftsmanship</small>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge-card badge-2">
+                            <i class="fa-solid fa-shield-halved fs-3 text-info"></i>
+                            <div>
+                                <h6 class="mb-0 text-white fw-bold">Lifetime Warranty</h6>
+                                <small class="text-muted">Global Platinum Coverage</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="features">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="text-uppercase text-warning fw-bold small tracking-widest">Why Choose Aura</span>
+                <h2 class="display-5 fw-bold text-white mt-2">Engineered for Perfection</h2>
+                <p class="text-muted">Discover the signature hallmarks that elevate our products to an art form.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <div class="feature-icon-box">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-3">Quantum Processing</h4>
+                        <p class="text-muted leading-relaxed">Integrated next-gen neural architecture providing effortless real-time adaptive response and efficiency.</p>
+                        <a href="#" class="text-warning text-decoration-none fw-semibold small">Learn More <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <div class="feature-icon-box">
+                            <i class="fa-solid fa-feather-pointed"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-3">Titanium Alloy Chassis</h4>
+                        <p class="text-muted leading-relaxed">Ultra-lightweight aerospace titanium housing engineered to resist extreme temperature and wear.</p>
+                        <a href="#" class="text-warning text-decoration-none fw-semibold small">Learn More <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <div class="feature-icon-box">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-3">Biometric Encryption</h4>
+                        <p class="text-muted leading-relaxed">Military-grade cryptographic hardware security storing all personal tokens with zero-cloud latency.</p>
+                        <a href="#" class="text-warning text-decoration-none fw-semibold small">Learn More <i class="fa-solid fa-chevron-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="collection">
+        <div class="container py-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
+                <div>
+                    <span class="text-uppercase text-warning fw-bold small tracking-widest">Curated Catalog</span>
+                    <h2 class="display-6 fw-bold text-white mt-2">Featured Masterpieces</h2>
+                </div>
+                <div class="mt-3 mt-md-0">
+                    <button class="btn btn-luxury-outline btn-sm">View Full Gallery</button>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Product Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card p-0 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=800&auto=format&fit=crop" alt="Aura Timepiece" class="w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://placehold.co/600x400/12141d/ffffff?text=Aura+Horizon'">
+                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 fw-bold">Limited Edition</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="text-white fw-bold mb-0">Aura Horizon Chrono</h5>
+                                <span class="text-warning fw-bold">$4,850</span>
+                            </div>
+                            <p class="text-muted small mb-4">Handcrafted tourbillon movement encased in sapphire crystal glass.</p>
+                            <button class="btn btn-luxury-primary w-100 justify-content-center">Reserve Piece</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card p-0 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop" alt="Aura Acoustics" class="w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://placehold.co/600x400/12141d/ffffff?text=Aura+Acoustics'">
+                            <span class="badge bg-info text-dark position-absolute top-0 end-0 m-3 fw-bold">New Release</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="text-white fw-bold mb-0">Aura Sonic Pro Studio</h5>
+                                <span class="text-warning fw-bold">$1,290</span>
+                            </div>
+                            <p class="text-muted small mb-4">Active acoustic vacuum isolation with beryllium dynamic drivers.</p>
+                            <button class="btn btn-luxury-primary w-100 justify-content-center">Reserve Piece</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card p-0 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" alt="Aura Leather" class="w-100" style="height: 250px; object-fit: cover;" onerror="this.src='https://placehold.co/600x400/12141d/ffffff?text=Aura+Leather'">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="text-white fw-bold mb-0">Monolith Travel Companion</h5>
+                                <span class="text-warning fw-bold">$2,400</span>
+                            </div>
+                            <p class="text-muted small mb-4">Full-grain Tuscan leather equipped with GPS anti-theft tracking.</p>
+                            <button class="btn btn-luxury-primary w-100 justify-content-center">Reserve Piece</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-target="99.8">0</div>
+                    <p class="text-muted mb-0 fw-semibold">Precision Accuracy %</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-target="150">0</div>
+                    <p class="text-muted mb-0 fw-semibold">Bespoke Boutiques</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-target="42">0</div>
+                    <p class="text-muted mb-0 fw-semibold">Global Innovation Awards</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-target="240">0</div>
+                    <p class="text-muted mb-0 fw-semibold">Patented Technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="testimonials">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="text-uppercase text-warning fw-bold small tracking-widest">Testimonials</span>
+                <h2 class="display-6 fw-bold text-white mt-2">Endorsed by Leaders</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Client" onerror="this.src='https://placehold.co/100x100/e2b714/000000?text=E'">
+                            <div>
+                                <h6 class="text-white fw-bold mb-0">Elena Rostova</h6>
+                                <small class="text-muted">Chief Creative Officer</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small leading-relaxed mb-3">"Aura sets a brand new benchmark for elegance. The attention to ergonomic details and seamless integration into my day-to-day workflow is extraordinary."</p>
+                        <div class="text-warning small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Client" onerror="this.src='https://placehold.co/100x100/e2b714/000000?text=M'">
+                            <div>
+                                <h6 class="text-white fw-bold mb-0">Marcus Vance</h6>
+                                <small class="text-muted">Tech Investor</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small leading-relaxed mb-3">"Rarely do you encounter a brand where build quality and software polish align so harmoniously. Purchasing from Aura was an easy decision."</p>
+                        <div class="text-warning small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Client" onerror="this.src='https://placehold.co/100x100/e2b714/000000?text=S'">
+                            <div>
+                                <h6 class="text-white fw-bold mb-0">Sophia Chen</h6>
+                                <small class="text-muted">Architect & Designer</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small leading-relaxed mb-3">"The minimalist aesthetic combined with titanium craftsmanship makes every interaction feel premium. Truly a masterpiece of industrial design."</p>
+                        <div class="text-warning small">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="newsletter">
+        <div class="container py-4">
+            <div class="newsletter-card text-center">
+                <div class="max-w-600 mx-auto position-relative z-1">
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">Exclusive Access</span>
+                    <h2 class="display-6 fw-bold text-white mb-3">Join The Aura Private Circle</h2>
+                    <p class="text-muted mb-4">Subscribe to receive invitation-only previews of future product releases and private events.</p>
+                    
+                    <form id="subscribeForm" class="row g-2 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="newsletter-input" placeholder="Enter your VIP email address..." required id="vipEmail">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-luxury-primary w-100 h-100 justify-content-center">Request Access</button>
+                        </div>
+                    </form>
+                    <div id="newsletterMsg" class="mt-3 text-warning small" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <!-- Brand Info -->
+                <div class="col-lg-4">
+                    <a class="navbar-brand brand-logo mb-3 d-inline-block" href="#">
+                        <i class="fa-solid fa-crown"></i> AURA
+                    </a>
+                    <p class="small text-muted mb-4">Aura defines modern luxury through precision manufacturing, bespoke engineering, and uncompromising aesthetic perfection.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 1 -->
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-title">Products</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Timepieces</a></li>
+                        <li><a href="#">Audio Devices</a></li>
+                        <li><a href="#">Leather Goods</a></li>
+                        <li><a href="#">Smart Hardware</a></li>
+                        <li><a href="#">Custom Orders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-lg-2 col-6">
+                    <h6 class="footer-title">Company</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Heritage</a></li>
+                        <li><a href="#">Atelier Studio</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Room</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="col-lg-4 col-md-12">
+                    <h6 class="footer-title">Concierge Service</h6>
+                    <p class="small text-muted">Need personal assistance or custom configuration?</p>
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <i class="fa-solid fa-envelope text-warning"></i>
+                        <span class="small text-white">concierge@aura-luxury.com</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="fa-solid fa-phone text-warning"></i>
+                        <span class="small text-white">+1 (800) 888-AURA</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary opacity-25">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-3 small text-muted">
+                <p class="mb-md-0">&copy; 2026 AURA International Luxury Inc. All rights reserved.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+                    <a href="#" class="text-muted text-decoration-none">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back To Top Button -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            // 1. Navbar Glassmorphism Scroll Effect
+            const navbar = document.getElementById("mainNavbar");
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 40) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+            });
+
+            // 2. Back To Top Button Toggle & Smooth Scroll
+            const backToTopBtn = document.getElementById("backToTopBtn");
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add("visible");
+                } else {
+                    backToTopBtn.classList.remove("visible");
+                }
+            });
+
+            backToTopBtn.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+
+            // 3. Dynamic Search Mock Logic
+            const searchInput = document.getElementById("searchInput");
+            const dynamicResultsList = document.getElementById("dynamicResultsList");
+            const searchTags = document.querySelectorAll(".search-tag");
+
+            const mockData = [
+                { name: "Aura Horizon Chrono Watch", category: "Timepiece", price: "$4,850" },
+                { name: "Aura Sonic Pro Headphones", category: "Audio", price: "$1,290" },
+                { name: "Monolith Travel Companion Leather Bag", category: "Leather", price: "$2,400" },
+                { name: "Quantum Titanium Keycard", category: "Access", price: "$650" },
+                { name: "Emerald Sapphire Pendant Edition", category: "Jewelry", price: "$8,900" }
+            ];
+
+            function renderResults(filterText = "") {
+                dynamicResultsList.innerHTML = "";
+                const filtered = mockData.filter(item => 
+                    item.name.toLowerCase().includes(filterText.toLowerCase()) ||
+                    item.category.toLowerCase().includes(filterText.toLowerCase())
+                );
+
+                if (filtered.length === 0) {
+                    dynamicResultsList.innerHTML = `<div class="text-muted p-3 text-center">No luxury items matched "${filterText}"</div>`;
+                    return;
+                }
+
+                filtered.forEach(item => {
+                    const a = document.createElement("a");
+                    a.href = "#collection";
+                    a.className = "list-group-item list-group-item-action bg-transparent text-white border-secondary border-opacity-25 d-flex justify-content-between align-items-center py-3";
+                    a.setAttribute("data-bs-dismiss", "modal");
+                    a.innerHTML = `
+                        <div>
+                            <div class="fw-bold">${item.name}</div>
+                            <small class="text-muted">${item.category}</small>
+                        </div>
+                        <span class="badge bg-warning text-dark fw-bold">${item.price}</span>
+                    `;
+                    dynamicResultsList.appendChild(a);
+                });
+            }
+
+            // Initial mock render
+            renderResults("");
+
+            searchInput.addEventListener("input", function (e) {
+                renderResults(e.target.value);
+            });
+
+            searchTags.forEach(tag => {
+                tag.addEventListener("click", function () {
+                    const tagText = this.innerText.trim();
+                    searchInput.value = tagText;
+                    renderResults(tagText);
+                });
+            });
+
+            // 4. Counter Animation for Impact Stats
+            let animatedStats = false;
+            const statsSection = document.getElementById("stats");
+            const statNumbers = document.querySelectorAll(".stat-number");
+
+            function animateCounters() {
+                const sectionPos = statsSection.getBoundingClientRect().top;
+                const screenPos = window.innerHeight;
+
+                if (sectionPos < screenPos && !animatedStats) {
+                    animatedStats = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseFloat(stat.getAttribute("data-target"));
+                        let count = 0;
+                        const speed = target / 50;
+
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                stat.innerText = count.toFixed(target % 1 !== 0 ? 1 : 0);
+                                setTimeout(updateCount, 20);
+                            } else {
+                                stat.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            }
+
+            window.addEventListener("scroll", animateCounters);
+
+            // 5. Newsletter Submission Form Mock
+            const subscribeForm = document.getElementById("subscribeForm");
+            const newsletterMsg = document.getElementById("newsletterMsg");
+
+            subscribeForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const email = document.getElementById("vipEmail").value;
+                newsletterMsg.style.display = "block";
+                newsletterMsg.innerHTML = `<i class="fa-solid fa-circle-check me-1"></i> Thank you! Invitation key sent to <strong>${email}</strong>.`;
+                subscribeForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
