@@ -1,0 +1,37 @@
+[
+    {
+        "name":"Samsung s25 ultra",
+        "price":"1,25,000",
+        "stock":true,
+        "rating":{"rate":4.6, "count":6000},
+        "photo":"../public/images/m5.webp"
+    },
+    {
+        "name":"Samsung s26 ultra",
+        "price":"1,30,000",
+        "stock":true,
+        "rating":{"rate":4.8, "count":8000},
+         "photo":"../public/images/m1.webp"
+    },
+    {
+        "name":"I phone 18 pro",
+        "price":"1.10,000",
+        "stock":true,
+        "rating":{"rate":4.4, "count":2000},
+        "photo":"../public/images/i18.webp"
+    },
+    {
+        "name":"I phone 17 pro",
+        "price":"1,00,000",
+        "stock":true,
+        "rating":{"rate":4.5, "count":8000},
+         "photo":"../public/images/m2.webp"
+    },
+    {
+        "name":"Google pixel 10pro",
+        "price":"80,000",
+        "stock":true,
+        "rating":{"rate":4.3, "count":1500},
+         "photo":"../public/images/m3.webp"
+    }
+]

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+        function loadclick(){
+            fetch("../data/product.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                for(var product of data)
+                {
+                    var tr=document.createElement("tr");
+                    var tdname=document.createElement("td");
+                    var tdprice=document.createElement("td");
+                    var tdstock=document.createElement("td");
+                    var tdrating=document.createElement("td");
+                    var tdimg=document.createElement("td");
+                    tdname.innerHTML=product.name;
+                    tdprice.innerHTML=product.price;
+                    tdstock.innerHTML=product.stock;
+                    tdrating.innerHTML=`${product.rating.rate} [${product.rating.count}]`;
+                    tdimg.innerHTML=`<img src=${product.photo} width="100px" height="100px">`;
+                    tr.appendChild(tdname);
+                    tr.appendChild(tdprice);
+                    tr.appendChild(tdstock);
+                    tr.appendChild(tdrating);
+                    tr.appendChild(tdimg);
+                   document.querySelector("tbody").appendChild(tr);
+                }
+            })
+            .catch(function(error){
+                alert(Error);
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="d-flex justify-content-between mt-2">
+         <h2>Products Table</h2>
+        <span onclick="loadclick()" class="btn btn-primary">Load Data</span>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Rating</th>
+                <th>Preview</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
