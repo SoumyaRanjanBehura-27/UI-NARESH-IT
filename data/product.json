@@ -15,7 +15,7 @@
     },
     {
         "name":"I phone 18 pro",
-        "price":"1.10,000",
+        "price":"1,10,000",
         "stock":true,
         "rating":{"rate":4.4, "count":2000},
         "photo":"../public/images/i18.webp"
