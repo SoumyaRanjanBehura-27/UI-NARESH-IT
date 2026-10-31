@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/standalone": "^8.0.10",
     "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1"
+    "bootstrap-icons": "^1.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

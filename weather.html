@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Component</title>
+    <!--linking bootstarp -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <!--linking react-->
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./node_modules/@babel/standalone/babel.js"></script>
+    <!--virtual DOM-->
+    <script type="text/babel">
+        //index component
+        function WeatherIndex(){
+            return(
+                <div className="container-fluid row">
+                    <div className="col-2">
+                        <Sidebar/>
+                        </div>
+                    <div className="col-10">
+                        <Header/>
+                        <WeatherCard/>
+                        </div>
+                    </div>
+            )
+        }
+        function Sidebar(){
+            return(
+                <nav>
+                    <div className="bg-primary fs-3 p-2 rounded mb-4 mt-2"><span className="bi bi-cloud"></span> Weather App</div>
+                    <ul className="list-group">
+                        <li className="list-group-item list-group-item-primary"><span className="bi bi-columns-gap"> Dashboard</span></li>
+                        <li className="list-group-item list-group-item-primary"><span className="bi bi-broadcast"> Radar and maps</span></li>
+                        <li className="list-group-item list-group-item-primary"><span className="bi bi-clock-history"> Hourly</span></li>
+                        <li className="list-group-item list-group-item-primary"><span className="bi bi-calender-date"> 7-Day outlook</span></li>
+                        <li className="list-group-item list-group-item-primary"><span className="bi bi-columns-wind"> Air quality</span></li>
+                        </ul>
+                        <button className="btn btn-primary w-100 mt-5">Signout</button>
+                    </nav>
+            )
+        }
+        function Header(){
+            return(
+                <header>
+                   <div className="d-flex justify-content-between align-items-center w-100">
+                     <div className="input-group mt-2 w-50">
+                        <input type="text" placeholder="search here" className="form-control"/>
+                        <button className="bi bi-search btn btn-warning"></button>
+                        </div>
+                        <div className="d-flex me-2 align-items-center">
+                            <span className="bi bi-heart"> Whishlist</span>
+                            <span className="bi bi-bell-fill mx-4">notifications</span>
+                            <span className="bi bi-person-fill">Signin</span>
+                            </div>
+                    </div>
+                    </header>
+            )
+        }
+        function WeatherCard(){
+           return(
+             <div className="card mt-5 w-50">
+                <div className="card-header d-flex justify-content-between align-items-center bg-primary-subtle">
+                    <div className="fs-4">
+                        <div>Hyderabad</div>
+                        <div>01.11.2026</div>
+                        </div>
+                        <div className="fs-4">Live Weather</div>
+                    </div>
+                    <div className="card-body d-flex justify-content-between bg-success-subtle">
+                        <div className="fs-3">27&deg;c</div>
+                        <div className="fs-4"><span className="bi bi-cloud-rain"></span>Raining</div>
+                        </div>
+                </div>
+           )
+        }
+        const root=ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<WeatherIndex/>)
+    </script>
+</head>
+<body>
+    <noscript>Please enable javascript in your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>
